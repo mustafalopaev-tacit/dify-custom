@@ -17,7 +17,9 @@ if [ "${NGINX_HTTPS_ENABLED}" = "true" ]; then
     export SSL_CERTIFICATE_KEY_PATH
 
     # set the HTTPS_CONFIG environment variable to the content of the https.conf.template
-    HTTPS_CONFIG=$(envsubst < /etc/nginx/https.conf.template)
+    # Tacit: substitute only defined environment variables, so nginx variables such as
+    # $scheme and $host in the template survive (same as the envsubst calls below).
+    HTTPS_CONFIG=$(envsubst "$(compgen -e | sed 's/^/$/' | paste -sd, -)" < /etc/nginx/https.conf.template)
     export HTTPS_CONFIG
     # Substitute the HTTPS_CONFIG in the default.conf.template with content from https.conf.template
     envsubst '${HTTPS_CONFIG}' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf
@@ -31,7 +33,10 @@ else
 fi
 export ACME_CHALLENGE_LOCATION
 
-env_vars=$(printenv | cut -d= -f1 | sed 's/^/$/g' | paste -sd, -)
+# Tacit: list variable names with compgen -e. `printenv | cut` also picked up the
+# continuation lines of the multi-line HTTPS_CONFIG, leaking nginx variables such as
+# $scheme into the list, which envsubst then blanked.
+env_vars=$(compgen -e | sed 's/^/$/' | paste -sd, -)
 
 envsubst "$env_vars" < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf
 envsubst "$env_vars" < /etc/nginx/proxy.conf.template > /etc/nginx/proxy.conf

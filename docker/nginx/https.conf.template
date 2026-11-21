@@ -7,3 +7,9 @@ ssl_protocols ${NGINX_SSL_PROTOCOLS};
 ssl_prefer_server_ciphers on;
 ssl_session_cache shared:SSL:10m;
 ssl_session_timeout 10m;
+
+# Tacit: redirect plain HTTP to HTTPS; Let's Encrypt challenges still answer on HTTP.
+set $tacit_https_redirect "";
+if ($scheme = http) { set $tacit_https_redirect "yes"; }
+if ($request_uri ~ "^/\.well-known/acme-challenge/") { set $tacit_https_redirect ""; }
+if ($tacit_https_redirect = "yes") { return 301 https://$host$request_uri; }

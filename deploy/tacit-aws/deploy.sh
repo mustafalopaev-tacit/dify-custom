@@ -95,11 +95,20 @@ if docker compose ps --status running --services 2>/dev/null | grep -qx db_postg
 fi
 DB_REV_BEFORE="$(db_rev)"
 
-# 3. Write .env, pull the images and start the stack.
+# 3. Write .env, pull the images and start the stack. If the pull fails (for example
+#    the images for this commit were never pushed), put the previous .env back so the
+#    running stack and the next reboot keep using the last good release.
+[ -f .env ] && cp -p .env .env.previous
 write_env
 aws ecr get-login-password | docker login --username AWS --password-stdin "$TACIT_ECR_REGISTRY" >/dev/null
-docker compose pull --quiet
+if ! docker compose pull --quiet; then
+  log "Image pull failed for $SHA; keeping the running release ${PREV_SHA:-none}"
+  [ -f .env.previous ] && mv .env.previous .env
+  exit 1
+fi
 docker compose up -d --remove-orphans
+# nginx renders its bind-mounted templates only at start; recreate it so template changes apply.
+docker compose up -d --no-deps --force-recreate nginx
 
 # 4. First deploy only: get the Let's Encrypt certificate, then switch nginx to HTTPS.
 if [ ! -f "$CERT" ]; then
