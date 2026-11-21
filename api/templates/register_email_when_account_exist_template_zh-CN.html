@@ -5,8 +5,8 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            color: #101828;
-            background-color: #e9ebf0;
+            color: #09090b;
+            background-color: #e4e4e7;
             margin: 0;
             padding: 0;
         }
@@ -35,7 +35,7 @@
             font-weight: 600;
             font-size: 24px;
             line-height: 1.2;
-            color: #101828;
+            color: #09090b;
         }
 
         .description {
@@ -43,14 +43,14 @@
             margin-bottom: 12px;
             font-size: 14px;
             line-height: 20px;
-            color: #676f83;
+            color: #65656f;
         }
 
         .code-content {
             padding: 16px 32px;
             text-align: center;
             border-radius: 16px;
-            background-color: #f2f4f7;
+            background-color: #f4f4f5;
             margin: 16px auto;
         }
 
@@ -62,8 +62,8 @@
 
         .button {
             display: block;
-            background: #2563eb;
-            color: #fff !important;
+            background: #2DB58F;
+            color: #09090b !important;
             text-decoration: none;
             font-weight: 600;
             border-radius: 10px;
@@ -78,13 +78,13 @@
         }
 
         .reset-btn {
-            color: #155AEF;
+            color: #007957;
             text-decoration: none;
             font-weight: 500;
         }
 
         .support {
-            color: #155AEF;
+            color: #007957;
             text-decoration: none;
         }
 
@@ -94,7 +94,7 @@
 
         .tip {
             margin-top: 20px;
-            color: #676F83;
+            color: #65656f;
             text-align: center;
             font-size: 12px;
             font-weight: 400;
@@ -107,7 +107,7 @@
     <div class="container">
         <div class="header">
             <!-- Optional: Add a logo or a header image here -->
-            <img src="https://assets.dify.ai/images/logo.png" alt="Dify Logo" />
+            <img src="{{ config.CONSOLE_WEB_URL }}/logo/logo-email.png" alt="Tacit" />
         </div>
         <p class="title">您似乎正在使用现有账户注册</p>
         <p class="description">您好，{{account_name}}</p>
@@ -117,8 +117,8 @@
             请在此登录: </p>
         <div style="text-align: center; margin-bottom: 20px;">
           <a href="{{ login_url }}"
-             style="background-color:#2563eb;
-                    color:#ffffff !important;
+             style="background-color:#2DB58F;
+                    color:#09090b !important;
                     text-decoration:none;
                     display:inline-block;
                     font-weight:600;
@@ -127,14 +127,14 @@
                     line-height:18px;
                     font-family: Helvetica, Arial, sans-serif;
                     text-align:center;
-                    border-top: 10px solid #2563eb;
-                    border-bottom: 10px solid #2563eb;
-                    border-left: 20px solid #2563eb;
-                    border-right: 20px solid #2563eb;
+                    border-top: 10px solid #2DB58F;
+                    border-bottom: 10px solid #2DB58F;
+                    border-left: 20px solid #2DB58F;
+                    border-right: 20px solid #2DB58F;
                     ">登录</a>
           <p style="font-size: 12px; color: #666666; margin-top: 20px; margin-bottom: 0;">
               如果按钮无法使用，请将以下链接复制到浏览器打开：<br>
-              <a href="{{ login_url }}" style="color: #2563eb; text-decoration: underline; word-break: break-all;">
+              <a href="{{ login_url }}" style="color: #007957; text-decoration: underline; word-break: break-all;">
                   {{ login_url }}
               </a>
           </p>

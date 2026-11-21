@@ -6,8 +6,8 @@
     body {
       font-family: 'Arial', sans-serif;
       line-height: 16pt;
-      color: #101828;
-      background-color: #e9ebf0;
+      color: #09090b;
+      background-color: #e4e4e7;
       margin: 0;
       padding: 0;
     }
@@ -29,7 +29,7 @@
     }
 
     .header img {
-      max-width: 63px;
+      max-width: 120px;
       height: auto;
     }
 
@@ -37,7 +37,7 @@
       margin: 0;
       padding-top: 8px;
       padding-bottom: 16px;
-      color: #101828;
+      color: #09090b;
       font-size: 24px;
       font-family: Inter;
       font-style: normal;
@@ -46,7 +46,7 @@
     }
 
     .description {
-      color: #354052;
+      color: #3f3f46;
       font-size: 14px;
       font-family: Inter;
       font-style: normal;
@@ -75,11 +75,11 @@
       padding: 16px 32px;
       text-align: center;
       border-radius: 16px;
-      background-color: #f2f4f7;
+      background-color: #f4f4f5;
     }
 
     .code {
-      color: #101828;
+      color: #09090b;
       font-family: Inter;
       font-size: 30px;
       font-style: normal;
@@ -91,7 +91,7 @@
       margin: 0;
       padding-top: 12px;
       padding-bottom: 16px;
-      color: #354052;
+      color: #3f3f46;
       font-size: 14px;
       font-family: Inter;
       font-style: normal;
@@ -101,13 +101,13 @@
     }
 
     .support {
-      color: #354052;
+      color: #3f3f46;
       font-weight: 500;
       text-decoration: none;
     }
 
     .support:hover {
-      color: #354052;
+      color: #3f3f46;
       font-weight: 500;
       text-decoration: underline;
     }
@@ -118,11 +118,11 @@
   <div class="container">
     <div class="header">
       <!-- Optional: Add a logo or a header image here -->
-      <img src="https://assets.dify.ai/images/logo.png" alt="Dify Logo" />
+      <img src="{{ config.CONSOLE_WEB_URL }}/logo/logo-email.png" alt="Tacit" />
     </div>
     <p class="title">Your login email has been changed</p>
     <div class="description">
-      <p class="content1">You can now log into Dify with your new email address:</p>
+      <p class="content1">You can now log into Tacit with your new email address:</p>
     </div>
     <div class="code-content">
       <span class="code">{{email}}</span>

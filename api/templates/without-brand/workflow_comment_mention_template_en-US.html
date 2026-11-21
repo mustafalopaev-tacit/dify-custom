@@ -6,8 +6,8 @@
     body {
       font-family: 'Arial', sans-serif;
       line-height: 16pt;
-      color: #101828;
-      background-color: #e9ebf0;
+      color: #09090b;
+      background-color: #e4e4e7;
       margin: 0;
       padding: 0;
     }
@@ -29,7 +29,7 @@
     }
 
     .header img {
-      max-width: 63px;
+      max-width: 120px;
       height: auto;
     }
 
@@ -37,7 +37,7 @@
       margin: 0;
       padding-top: 8px;
       padding-bottom: 16px;
-      color: #101828;
+      color: #09090b;
       font-size: 24px;
       font-family: Inter;
       font-style: normal;
@@ -46,7 +46,7 @@
     }
 
     .description {
-      color: #354052;
+      color: #3f3f46;
       font-size: 14px;
       font-family: Inter;
       font-style: normal;
@@ -70,12 +70,12 @@
       margin-bottom: 16px;
       padding: 12px 16px;
       border-radius: 12px;
-      background-color: #f2f4f7;
+      background-color: #f4f4f5;
     }
 
     .comment-text {
       margin: 0;
-      color: #101828;
+      color: #09090b;
       font-family: Inter;
       font-size: 14px;
       font-style: normal;
@@ -88,7 +88,7 @@
     .tips {
       margin: 0;
       padding-bottom: 24px;
-      color: #354052;
+      color: #3f3f46;
       font-size: 14px;
       font-family: Inter;
       font-style: normal;
@@ -102,7 +102,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <img src="https://assets.dify.ai/images/logo.png" alt="Dify Logo" />
+      <img src="{{ config.CONSOLE_WEB_URL }}/logo/logo-email.png" alt="Tacit" />
     </div>
     <p class="title">You were mentioned in a workflow comment</p>
     <div class="description">
@@ -112,7 +112,7 @@
     <div class="comment-box">
       <p class="comment-text">{{ comment_content }}</p>
     </div>
-    <p class="tips"><a href="{{ app_url }}" style="color: #155AEF; text-decoration: none;">Open {{ application_title }}</a> to reply to the comment.</p>
+    <p class="tips"><a href="{{ app_url }}" style="color: #007957; text-decoration: none;">Open {{ application_title }}</a> to reply to the comment.</p>
   </div>
 </body>
 

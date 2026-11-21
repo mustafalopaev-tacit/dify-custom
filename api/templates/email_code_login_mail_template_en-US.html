@@ -5,8 +5,8 @@
       body {
         font-family: 'Arial', sans-serif;
         line-height: 16pt;
-        color: #101828;
-        background-color: #e9ebf0;
+        color: #09090b;
+        background-color: #e4e4e7;
         margin: 0;
         padding: 0;
       }
@@ -35,14 +35,14 @@
       .description {
         font-size: 13px;
         line-height: 16px;
-        color: #676f83;
+        color: #65656f;
         margin-top: 12px;
       }
       .code-content {
         padding: 16px 32px;
         text-align: center;
         border-radius: 16px;
-        background-color: #f2f4f7;
+        background-color: #f4f4f5;
         margin: 16px auto;
       }
       .code {
@@ -52,7 +52,7 @@
       }
       .tips {
         line-height: 16px;
-        color: #676f83;
+        color: #65656f;
         font-size: 13px;
       }
     </style>
@@ -61,9 +61,9 @@
     <div class="container">
       <div class="header">
         <!-- Optional: Add a logo or a header image here -->
-        <img src="https://assets.dify.ai/images/logo.png" alt="Dify Logo" />
+        <img src="{{ config.CONSOLE_WEB_URL }}/logo/logo-email.png" alt="Tacit" />
       </div>
-      <p class="title">Your login code for Dify</p>
+      <p class="title">Your login code for Tacit</p>
       <p class="description">Copy and paste this code, this code will only be valid for the next 5 minutes.</p>
       <div class="code-content">
         <span class="code">{{code}}</span>

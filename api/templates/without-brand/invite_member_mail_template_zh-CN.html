@@ -5,8 +5,8 @@
     body {
       font-family: 'Arial', sans-serif;
       line-height: 16pt;
-      color: #374151;
-      background-color: #E5E7EB;
+      color: #3f3f46;
+      background-color: #e4e4e7;
       margin: 0;
       padding: 0;
     }
@@ -27,19 +27,19 @@
     }
 
     .header img {
-      max-width: 63px;
+      max-width: 120px;
       height: auto;
     }
     .button {
       display: block;
       padding: 8px 12px;
-      color: white;
+      color: #09090b;
       text-decoration: none;
       border-radius: 10px;
       text-align: center;
       transition: background-color 0.3s ease;
       border: 0.5px solid rgba(16, 24, 40, 0.04);
-      background-color: #155AEF;
+      background-color: #007957;
       box-shadow: 0px -6px 12px -4px rgba(9, 9, 11, 0.08) inset, 0px 0px 1px 0px rgba(255, 255, 255, 0.16) inset, 0px 0.5px 0px 0px rgba(255, 255, 255, 0.08) inset, 0px 2px 2px -1px rgba(0, 0, 0, 0.12), 0px 1px 1px -1px rgba(0, 0, 0, 0.12), 0px 0px 0px 0.5px rgba(9, 9, 11, 0.05);
       font-family: Inter;
       font-size: 14px;
@@ -48,12 +48,12 @@
       line-height: 20px; /* 142.857% */
     }
     .button:hover {
-      background-color: #004AEB;
+      background-color: #26A582;
       border: 0.5px solid rgba(16, 24, 40, 0.08);
       box-shadow: 0px 1px 2px 0px rgba(9, 9, 11, 0.05);
     }
     .content {
-      color: #354052;
+      color: #3f3f46;
       font-family: Inter;
       font-size: 14px;
       font-style: normal;
@@ -83,8 +83,8 @@
       <p class="content2">点击下方按钮即可登录 {{application_title}} 并且加入空间。</p>
       <div style="text-align: center; margin-bottom: 32px;">
         <a href="{{ url }}"
-           style="background-color:#2563eb;
-                  color:#ffffff !important;
+           style="background-color:#2DB58F;
+                  color:#09090b !important;
                   text-decoration:none;
                   display:inline-block;
                   font-weight:600;
@@ -93,14 +93,14 @@
                   line-height:18px;
                   font-family: Helvetica, Arial, sans-serif;
                   text-align:center;
-                  border-top: 10px solid #2563eb;
-                  border-bottom: 10px solid #2563eb;
-                  border-left: 20px solid #2563eb;
-                  border-right: 20px solid #2563eb;
+                  border-top: 10px solid #2DB58F;
+                  border-bottom: 10px solid #2DB58F;
+                  border-left: 20px solid #2DB58F;
+                  border-right: 20px solid #2DB58F;
                   ">在此登录</a>
         <p style="font-size: 12px; color: #666666; margin-top: 20px; margin-bottom: 0;">
           如果按钮无法使用，请将以下链接复制到浏览器打开：<br>
-          <a href="{{ url }}" style="color: #2563eb; text-decoration: underline; word-break: break-all;">
+          <a href="{{ url }}" style="color: #007957; text-decoration: underline; word-break: break-all;">
             {{ url }}
           </a>
         </p>
