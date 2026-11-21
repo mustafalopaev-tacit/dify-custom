@@ -16,7 +16,11 @@ Parameters:
     Description: The account's default VPC
   GitHubRepo:
     Type: String
-    Default: mustafalopaev-tacit/dify-custom
+    Description: >-
+      Repository in GitHub's immutable OIDC subject form, owner@ownerId/repo@repoId
+      (the repo uses immutable subjects; see
+      `gh api repos/mustafalopaev-tacit/dify-custom/actions/oidc/customization/sub`)
+    Default: mustafalopaev-tacit@332860597/dify-custom@1466465994
   GitHubBranch:
     Type: String
     Default: main
