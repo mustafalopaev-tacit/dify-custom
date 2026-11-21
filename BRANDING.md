@@ -169,7 +169,10 @@ git merge <new-tag>            # e.g. 1.21.0
 - Build the images (the web image runs the production `next build`), start the stack, then screenshot these screens in light and dark: sign-in, Studio, a chatflow canvas with a node selected, app settings, the published chat web app, the embedded chat bubble, knowledge, and the account/settings dialog
 - `grep -ri dify web/app web/i18n/locales/en-US web/public`: every remaining user-visible hit must be in "Kept on purpose"
 
-Results for `1.20.0-tacit.1`: lint, type-check and i18n check are clean. All unit tests (1,897 files) and browser tests (417 files) pass after the spec updates, and so do the api email tests. Both images build. Contrast from `web/__tests__/tacit-theme-contrast.spec.ts`:
+Results for `1.20.0-tacit.1`: lint, type-check and i18n check are clean.
+- Unit tests: 1,898 files and 15,536 tests pass.
+- Browser tests: 417 files run. In the final full run, one test failed under load: `features/new-rag/sources/__tests__/edit-metadata.browser.spec.tsx`. It passes 3/3 when run alone and has nothing to do with the branding.
+- The api email tests pass, and both images build. Contrast from `web/__tests__/tacit-theme-contrast.spec.ts`:
 
 | Pair | Light | Dark |
 |---|---|---|
