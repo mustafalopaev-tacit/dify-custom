@@ -66,7 +66,7 @@ const Marketplace = ({
           </IconButton>
         )}
         <div className={cn('pt-4 pb-3', marketplaceFrameClassName)}>
-          <div className="bg-linear-to-r from-[rgba(11,165,236,0.95)] to-[rgba(21,90,239,0.95)] bg-clip-text title-2xl-semi-bold text-transparent">
+          <div className="bg-linear-to-r from-[#1f9a78] to-[#007957] bg-clip-text title-2xl-semi-bold text-transparent">
             {t(($) => $['marketplace.moreFrom'], { ns: 'plugin' })}
           </div>
           <div className="flex items-center text-center body-md-regular text-text-tertiary">

@@ -46,7 +46,7 @@ export function KnowledgeSpaceCard({
       className={cn(
         "group relative isolate h-41.5 overflow-hidden rounded-xl bg-components-card-bg text-left transition-[background-color,box-shadow] after:pointer-events-none after:absolute after:inset-0 after:z-1 after:rounded-xl after:content-[''] focus-within:bg-components-card-bg-alt focus-within:[--color-tag-selector-mask-bg:var(--color-tag-selector-mask-hover-bg)] hover:bg-components-card-bg-alt hover:shadow-md hover:[--color-tag-selector-mask-bg:var(--color-tag-selector-mask-hover-bg)] has-data-popup-open:bg-components-card-bg-alt has-data-popup-open:[--color-tag-selector-mask-bg:var(--color-tag-selector-mask-hover-bg)] has-[>a:focus-visible]:after:inset-ring-2 has-[>a:focus-visible]:after:inset-ring-state-accent-solid motion-reduce:transition-none [@media(hover:none)]:bg-components-card-bg-alt [@media(hover:none)]:[--color-tag-selector-mask-bg:var(--color-tag-selector-mask-hover-bg)]",
         highlighted
-          ? 'border-2 border-state-accent-solid shadow-[0_0_12px_4px_rgba(21,94,239,0.18)]'
+          ? 'border-2 border-state-accent-solid shadow-[0_0_12px_4px_rgba(45,181,143,0.25)]'
           : 'border-[0.5px] border-components-card-border shadow-xs',
       )}
     >

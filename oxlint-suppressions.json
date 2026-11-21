@@ -731,11 +731,6 @@
       "count": 6
     }
   },
-  "web/app/components/base/agent-log-modal/detail.tsx": {
-    "better-tailwindcss/enforce-logical-properties": {
-      "count": 4
-    }
-  },
   "web/app/components/base/agent-log-modal/index.tsx": {
     "better-tailwindcss/enforce-logical-properties": {
       "count": 3
@@ -5923,11 +5918,6 @@
       "count": 3
     }
   },
-  "web/features/new-rag/list/knowledge-space-card.tsx": {
-    "better-tailwindcss/enforce-logical-properties": {
-      "count": 5
-    }
-  },
   "web/features/new-rag/list/new-knowledge-list.tsx": {
     "better-tailwindcss/enforce-logical-properties": {
       "count": 1
@@ -6008,11 +5998,6 @@
       "count": 6
     }
   },
-  "web/features/new-rag/upgrade/knowledge-upgrade-card.tsx": {
-    "better-tailwindcss/enforce-logical-properties": {
-      "count": 2
-    }
-  },
   "web/features/skills/client.ts": {
     "dify/require-disable-directive-description": {
       "count": 2
@@ -6022,11 +6007,6 @@
     },
     "typescript/no-deprecated": {
       "count": 5
-    }
-  },
-  "web/features/skills/detail/builder-panel.tsx": {
-    "better-tailwindcss/enforce-logical-properties": {
-      "count": 11
     }
   },
   "web/features/skills/detail/file-editor.tsx": {

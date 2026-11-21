@@ -7,7 +7,7 @@
   @apply box-border min-w-0 cursor-pointer rounded-md bg-contain bg-center bg-no-repeat;
 }
 .active {
-  @apply inset-ring-[1.5px] inset-ring-[#2970FF];
+  @apply inset-ring-[1.5px] inset-ring-state-accent-solid;
 }
 .iframeIcon {
   background-image: url(../assets/iframe-option.svg);

@@ -44,7 +44,7 @@
   @apply bg-util-colors-blue-blue-200;
   background-image:
     linear-gradient(90deg, #5289ffe6 0%, #155aefe6 100%),
-    linear-gradient(135deg, var(--color-premium-badge-border-highlight-color) 0%, #155aef 100%);
+    linear-gradient(135deg, var(--color-premium-badge-border-highlight-color) 0%, #006a4c 100%);
   &.pb-allow-hover:hover {
     @apply bg-util-colors-blue-blue-300;
     background-image:

@@ -1,0 +1,128 @@
+/*
+ * Tacit re-brand: the hand-written half of the theme override.
+ *
+ * Loaded last from app/styles/tailwind-core.css, after Dify's design system.
+ * `tacit-tokens.css` (generated, see web/scripts/generate-tacit-theme.ts)
+ * re-maps Dify's semantic tokens; this file covers what the generator cannot:
+ * the Tailwind palette and font tokens, and the hand-written gradients in
+ * themes/manual-{light,dark}.css.
+ *
+ * Source of truth: tacit/core/web-ui/src/styles/globals.css. See BRANDING.md.
+ */
+
+@import './tacit-tokens.css' layer(base);
+
+/* ---------- Tailwind theme tokens -------------------------------------- */
+@theme {
+  /* `text-primary-600`, `bg-primary-600` and friends. These utilities are not
+   * theme-aware and are used both for text on white and under white text, so
+   * the 600 step is the brand text mint (#007957), which reaches 5.42:1 either
+   * way. 300 is the brand mint, 500 the brand-on-light fill. */
+  --color-primary-25: #f2fcf8;
+  --color-primary-50: #e6f9f2;
+  --color-primary-100: #c9f2e3;
+  --color-primary-200: #a9ecd4;
+  --color-primary-300: #93e8c9;
+  --color-primary-400: #5fd3ad;
+  --color-primary-500: #2db58f;
+  --color-primary-600: #007957;
+  --color-primary-700: #006a4c;
+  --color-primary-800: #00553f;
+  --color-primary-900: #003d2d;
+
+  /* Typography: Geist Variable, self-hosted via @fontsource-variable/geist
+   * (imported in app/layout.tsx). Emoji families stay unnamed, see the note on
+   * --font-sans in app/styles/tailwind-core.css. */
+  --font-sans:
+    'Geist Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    'Noto Sans', Arial, sans-serif;
+
+  /* Tacit text scale tracking: -0.01em for base to 3xl, -0.02em from 4xl. */
+  --text-base--letter-spacing: -0.01em;
+  --text-lg--letter-spacing: -0.01em;
+  --text-xl--letter-spacing: -0.01em;
+  --text-2xl--letter-spacing: -0.01em;
+  --text-3xl--letter-spacing: -0.01em;
+  --text-4xl--letter-spacing: -0.02em;
+  --text-5xl--letter-spacing: -0.02em;
+  --text-6xl--letter-spacing: -0.02em;
+  --text-7xl--letter-spacing: -0.02em;
+  --text-8xl--letter-spacing: -0.02em;
+  --text-9xl--letter-spacing: -0.02em;
+}
+
+/* Dify's own type utilities (system-*, title-*, body-*) set font-size directly.
+ * Apply the same tracking to the ones at 16px (base) and above; all of them
+ * stay below 36px (4xl), so -0.01em throughout. */
+@layer utilities {
+  :is(
+    .system-xl-medium,
+    .system-xl-semibold,
+    .title-xl-semi-bold,
+    .title-2xl-semi-bold,
+    .title-3xl-semi-bold,
+    .title-3xl-bold,
+    .title-4xl-semi-bold,
+    .title-5xl-semi-bold,
+    .title-5xl-bold
+  ) {
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ---------- Hand-written gradients (themes/manual-*.css) ----------------- */
+html[data-theme='light'] {
+  --color-background-gradient-bg-fill-chat-bubble-bg-3: #e6f9f2;
+  --color-pipeline-add-documents-title-bg: linear-gradient(92deg, #1f9a78 0%, #007957 97.78%);
+  --color-billing-plan-title-bg: linear-gradient(95deg, #007957 29.47%, #006a4c 105.31%);
+  --color-billing-plan-card-enterprise-bg: linear-gradient(
+    180deg,
+    #2db58f 0%,
+    rgba(45, 181, 143, 0) 100%
+  );
+  --color-chatbot-bg: linear-gradient(
+    180deg,
+    rgba(250, 250, 250, 0.9) 0%,
+    rgba(244, 244, 245, 0.9) 90.48%
+  );
+  --color-app-detail-bg: linear-gradient(169deg, #f4f4f5 1.18%, #fafafa 99.52%);
+  --color-progress-bar-indeterminate-stripe: repeating-linear-gradient(
+    -55deg,
+    #d4d4d8,
+    #d4d4d8 2px,
+    transparent 2px,
+    transparent 5px
+  );
+}
+
+html[data-theme='dark'] {
+  --color-background-gradient-bg-fill-chat-bubble-bg-3: #13362b;
+  --color-pipeline-add-documents-title-bg: linear-gradient(92deg, #93e8c9 0%, #2db58f 97.78%);
+  --color-billing-plan-title-bg: linear-gradient(95deg, #93e8c9 29.47%, #2db58f 105.31%);
+  --color-billing-plan-card-enterprise-bg: linear-gradient(
+    180deg,
+    #2db58f 0%,
+    rgba(45, 181, 143, 0) 100%
+  );
+  --color-knowledge-pipeline-creation-footer-bg: linear-gradient(
+    90deg,
+    rgba(24, 24, 27, 1) 4.89%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  --color-progress-bar-indeterminate-stripe: repeating-linear-gradient(
+    -55deg,
+    #3f3f46,
+    #3f3f46 2px,
+    transparent 2px,
+    transparent 5px
+  );
+}
+
+/* Gradient headline text used on a few marketing-style surfaces. */
+@layer components {
+  .text-gradient {
+    background: linear-gradient(91.58deg, #007957 -29.55%, #2db58f 75.22%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}

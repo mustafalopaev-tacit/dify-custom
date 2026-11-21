@@ -18,7 +18,7 @@ export const createTheme = (
   chatColorThemeInverted = false,
 ): Theme => {
   const hasCustomColor = chatColorTheme !== null && chatColorTheme !== ''
-  const primaryColor = hasCustomColor ? chatColorTheme : '#1C64F2'
+  const primaryColor = hasCustomColor ? chatColorTheme : '#007957'
   const colorFontOnHeaderStyle = chatColorThemeInverted ? `color: ${primaryColor}` : 'color: white'
 
   return Object.freeze({
@@ -29,16 +29,16 @@ export const createTheme = (
       ? 'backgroundColor: #ffffff'
       : hasCustomColor
         ? `backgroundColor: ${primaryColor}`
-        : 'backgroundImage: linear-gradient(to right, #2563eb, #0ea5e9)',
+        : 'backgroundImage: linear-gradient(to right, #006a4c, #007957)',
     headerBorderBottomStyle: chatColorThemeInverted ? 'borderBottom: 1px solid #ccc' : '',
     colorFontOnHeaderStyle,
     colorPathOnHeader: chatColorThemeInverted ? primaryColor : 'text-text-primary-on-surface',
     backgroundButtonDefaultColorStyle: hasCustomColor
       ? `backgroundColor: ${primaryColor}; color: color: white;`
-      : 'backgroundColor: #1C64F2',
+      : 'backgroundColor: #007957',
     roundedBackgroundColorStyle: hasCustomColor
       ? `backgroundColor: ${hexToRGBA(primaryColor, 0.05)}`
-      : 'backgroundColor: rgb(245 248 255)',
+      : 'backgroundColor: rgb(242 252 248)',
     chatBubbleColorStyle: hasCustomColor ? `backgroundColor: ${hexToRGBA(primaryColor, 0.15)}` : '',
   })
 }

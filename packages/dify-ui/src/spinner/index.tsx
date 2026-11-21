@@ -5,7 +5,7 @@ import { Progress as BaseProgress } from '@base-ui/react/progress'
 import { cva } from 'class-variance-authority'
 import { cn } from '../cn'
 
-const spinnerVariants = cva('inline-flex shrink-0 text-[#1c64f2]', {
+const spinnerVariants = cva('inline-flex shrink-0 text-text-accent', {
   variants: {
     size: {
       small: 'size-3',

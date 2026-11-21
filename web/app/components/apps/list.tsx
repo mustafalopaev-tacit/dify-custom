@@ -160,7 +160,7 @@ export function List({ onCreateLearnDify, onTryLearnDify }: Props) {
         className="relative flex h-0 min-h-0 shrink-0 grow flex-col bg-background-body"
       >
         {dragging && (
-          <div className="absolute inset-0 z-50 m-0.5 rounded-2xl border-2 border-dashed border-components-dropzone-border-accent bg-[rgba(21,90,239,0.14)] p-2"></div>
+          <div className="absolute inset-0 z-50 m-0.5 rounded-2xl border-2 border-dashed border-components-dropzone-border-accent bg-components-dropzone-bg-accent p-2"></div>
         )}
 
         <div
