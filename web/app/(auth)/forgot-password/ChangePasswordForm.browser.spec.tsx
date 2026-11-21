@@ -64,7 +64,7 @@ it('keeps the real token query pending before showing the password form', async 
 
   const screen = await renderForm()
 
-  await expect.poll(() => document.title).toBe('common.loading - Dify')
+  await expect.poll(() => document.title).toBe('common.loading - Tacit')
   await expect
     .element(screen.getByRole('heading', { level: 1, name: 'login.changePassword' }))
     .not.toBeInTheDocument()
@@ -114,7 +114,7 @@ it('submits the verified token through the native password form', async () => {
   await expect
     .element(screen.getByRole('link', { name: 'login.passwordChanged' }))
     .toHaveAttribute('href', '/signin')
-  await expect.poll(() => document.title).toBe('login.passwordChangedTip - Dify')
+  await expect.poll(() => document.title).toBe('login.passwordChangedTip - Tacit')
 })
 
 it('replaces invalid and missing password errors on the same focused field', async () => {
@@ -203,5 +203,5 @@ it('shows the invalid-token state after the real token query settles', async () 
   await expect
     .element(screen.getByRole('button', { name: /common\.operation\.reset/ }))
     .not.toBeInTheDocument()
-  await expect.poll(() => document.title).toBe('login.invalid - Dify')
+  await expect.poll(() => document.title).toBe('login.invalid - Tacit')
 })

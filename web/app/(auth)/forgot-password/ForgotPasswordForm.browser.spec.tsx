@@ -58,7 +58,7 @@ it('renders the labelled native email form without waiting for the init query', 
     .toHaveTextContent('login.forgotPassword')
   await expect.element(email).toHaveAttribute('type', 'email')
   await expect.element(email).toHaveAttribute('autocomplete', 'email')
-  await expect.poll(() => document.title).toBe('login.forgotPassword - Dify')
+  await expect.poll(() => document.title).toBe('login.forgotPassword - Tacit')
 })
 
 it('keeps invalid and missing email errors associated with the focused native field', async () => {
@@ -101,7 +101,7 @@ it('submits with Enter and replaces the form with the sign-in destination', asyn
     .element(screen.getByRole('link', { name: /login\.backToSignIn/ }))
     .toHaveAttribute('href', '/signin')
   await expect.element(email).not.toBeInTheDocument()
-  await expect.poll(() => document.title).toBe('login.resetLinkSent - Dify')
+  await expect.poll(() => document.title).toBe('login.resetLinkSent - Tacit')
 })
 
 it('prevents a second submission while the reset request is pending', async () => {

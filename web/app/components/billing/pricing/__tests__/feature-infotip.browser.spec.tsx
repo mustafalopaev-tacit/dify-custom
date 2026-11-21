@@ -37,7 +37,7 @@ async function openPricing() {
 it('reanchors a pinned explanation to a hovered feature in the same or another plan', async () => {
   await openPricing()
   const runs = page.getByRole('button', { name: '500 app runs / month' })
-  const title = page.getByRole('heading', { name: 'Dify Cloud' })
+  const title = page.getByRole('heading', { name: 'Tacit Cloud' })
   for (const [label, explanation] of [
     ['200 AI credits total', billing['pricing.credits.basic']],
     [billing['pricing.advancedModels'], billing['pricing.credits.advanced']],
@@ -109,6 +109,6 @@ it('keeps a tapped explanation readable until an outside tap', async () => {
   const runs = page.getByRole('button', { name: '500 app runs / month' })
   await tap(runs)
   await expect.element(page.getByText(billing['pricing.runs.tooltip'])).toBeVisible()
-  await tap(page.getByRole('heading', { name: 'Dify Cloud' }))
+  await tap(page.getByRole('heading', { name: 'Tacit Cloud' }))
   await expect.element(page.getByText(billing['pricing.runs.tooltip'])).not.toBeInTheDocument()
 })

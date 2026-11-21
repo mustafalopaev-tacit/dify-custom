@@ -139,7 +139,7 @@ describe('OAuthAuthorize', () => {
     renderPage()
 
     await screen.findByRole('button', { name: /continue/i })
-    expect(document.title).toBe('oauth.connect Test OAuth App - Dify')
+    expect(document.title).toBe('oauth.connect Test OAuth App - Tacit')
     const providerRequest = findRequest('/oauth/provider')
     const providerTransportRequest = providerRequest?.[2]?.request as Request
     await expect(providerTransportRequest.clone().json()).resolves.toEqual({

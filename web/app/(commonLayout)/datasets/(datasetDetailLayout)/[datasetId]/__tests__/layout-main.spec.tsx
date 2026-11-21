@@ -136,7 +136,7 @@ describe('DatasetDetailLayout', () => {
       )
 
       await waitFor(() => {
-        expect(document.title).toBe(`${pageTitle} · Dataset 1 - Dify`)
+        expect(document.title).toBe(`${pageTitle} · Dataset 1 - Tacit`)
       })
     })
 
@@ -181,7 +181,7 @@ describe('DatasetDetailLayout', () => {
 
       expect(screen.getByText('Create knowledge content')).toBeInTheDocument()
       await waitFor(() => {
-        expect(document.title).toBe('datasetPipeline.addDocuments.title · Dataset 1 - Dify')
+        expect(document.title).toBe('datasetPipeline.addDocuments.title · Dataset 1 - Tacit')
       })
     })
   })

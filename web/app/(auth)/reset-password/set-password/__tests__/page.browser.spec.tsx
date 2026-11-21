@@ -113,7 +113,7 @@ it('reveals the native password input and submits the form with Enter', async ()
   await expect
     .element(screen.getByRole('heading', { level: 1, name: 'login.passwordChangedTip' }))
     .toBeVisible()
-  await expect.poll(() => document.title).toBe('login.passwordChangedTip - Dify')
+  await expect.poll(() => document.title).toBe('login.passwordChangedTip - Tacit')
 })
 
 it('revalidates the confirmation field as the native password value changes', async () => {

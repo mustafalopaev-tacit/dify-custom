@@ -86,7 +86,7 @@ describe('KnowledgeSpaceShell', () => {
     renderShell()
 
     await waitFor(() => {
-      expect(document.title).toBe(`${pageTitle} · Support knowledge - Dify`)
+      expect(document.title).toBe(`${pageTitle} · Support knowledge - Tacit`)
     })
   })
 
@@ -100,7 +100,7 @@ describe('KnowledgeSpaceShell', () => {
     renderShell(<DocumentPage />)
 
     expect(await screen.findByText('document content')).toBeInTheDocument()
-    await waitFor(() => expect(document.title).toBe('Refund policy.pdf - Dify'))
+    await waitFor(() => expect(document.title).toBe('Refund policy.pdf - Tacit'))
   })
 
   it('renders the header, breadcrumb, and route navigation once the space loads', async () => {

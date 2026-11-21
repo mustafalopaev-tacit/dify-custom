@@ -153,8 +153,8 @@ describe('Root layout System Features bootstrap', () => {
 
     await expect(generateMetadata()).resolves.toMatchObject({
       title: {
-        default: 'Dify',
-        template: '%s - Dify',
+        default: 'Tacit',
+        template: '%s - Tacit',
       },
     })
   })

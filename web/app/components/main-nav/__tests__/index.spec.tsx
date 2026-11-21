@@ -879,7 +879,7 @@ describe('MainNav', () => {
     ).not.toBeInTheDocument()
   })
 
-  it('opens Creator Center from the help menu above GitHub', async () => {
+  it('opens Creator Center from the help menu without the hidden GitHub link', async () => {
     const user = userEvent.setup()
     renderMainNav()
 
@@ -888,12 +888,14 @@ describe('MainNav', () => {
     const creatorCenter = await screen.findByRole('menuitem', {
       name: 'navigation.mainNav.help.creatorCenter',
     })
-    const github = screen.getByRole('menuitem', { name: /common\.userProfile\.github/ })
 
     expect(creatorCenter).toHaveAttribute('href', 'https://creators.dify.ai/')
     expect(creatorCenter).toHaveAttribute('target', '_blank')
     expect(creatorCenter).toHaveAttribute('rel', 'noopener noreferrer')
-    expect(creatorCenter.compareDocumentPosition(github)).toBe(Node.DOCUMENT_POSITION_FOLLOWING)
+    // Tacit re-brand: upstream community links are hidden (TACIT_BRANDING).
+    expect(
+      screen.queryByRole('menuitem', { name: /common\.userProfile\.github/ }),
+    ).not.toBeInTheDocument()
   })
 
   it('opens About from its real Help menu owner and restores focus when closed', async () => {
@@ -920,10 +922,8 @@ describe('MainNav', () => {
       'href',
       'https://dify.ai/privacy',
     )
-    expect(screen.getByRole('link', { name: 'common.about.changeLog' })).toHaveAttribute(
-      'href',
-      'https://github.com/langgenius/dify/releases',
-    )
+    // Tacit re-brand: the upstream changelog link is hidden (TACIT_BRANDING).
+    expect(screen.queryByRole('link', { name: 'common.about.changeLog' })).not.toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'common.about.updateNow' })).toHaveAttribute(
       'href',
       'https://github.com/langgenius/dify/releases/tag/1.1.0',
@@ -940,17 +940,18 @@ describe('MainNav', () => {
     })
   })
 
-  it('shows the open-source license in About for non-Cloud editions', async () => {
+  it('hides the upstream open-source license link in About for non-Cloud editions', async () => {
     const user = userEvent.setup()
     renderMainNav({ deployment_edition: 'COMMUNITY' })
 
     await user.click(screen.getByRole('button', { name: 'navigation.mainNav.help.openMenu' }))
     await user.click(await screen.findByRole('menuitem', { name: /common\.userProfile\.about/ }))
 
-    expect(await screen.findByRole('link', { name: 'Open Source License' })).toHaveAttribute(
-      'href',
-      'https://github.com/langgenius/dify/blob/main/LICENSE',
-    )
+    expect(
+      await screen.findByRole('dialog', { name: 'common.userProfile.about' }),
+    ).toBeInTheDocument()
+    // Tacit re-brand: upstream community links are hidden (TACIT_BRANDING).
+    expect(screen.queryByRole('link', { name: 'Open Source License' })).not.toBeInTheDocument()
     expect(screen.queryByRole('link', { name: 'Privacy Policy' })).not.toBeInTheDocument()
   })
 

@@ -240,7 +240,7 @@ describe('LoadedFormContent', () => {
       <LoadedFormContent definition={v2Definition} isSubmitting={false} onSubmit={vi.fn()} />,
     )
     await expect.element(page.getByRole('heading', { name: 'Legacy app' })).not.toBeInTheDocument()
-    await expect.element(page.getByRole('img', { name: 'Dify', exact: true })).toBeInTheDocument()
+    await expect.element(page.getByRole('img', { name: 'Tacit', exact: true })).toBeInTheDocument()
   })
 })
 

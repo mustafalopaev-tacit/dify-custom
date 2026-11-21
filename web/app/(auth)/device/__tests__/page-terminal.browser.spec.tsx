@@ -68,7 +68,7 @@ it.each([
   await code.fill('ABCD-3456')
   await screen.getByRole('button', { name: 'deviceFlow.codeEntry.continue' }).click()
   await expect.element(screen.getByRole('heading', { name: title })).toBeVisible()
-  expect(document.title).toBe(`${title} - Dify`)
+  expect(document.title).toBe(`${title} - Tacit`)
   await screen.getByRole('button', { name: retry }).click()
   await expect.element(code).toBeVisible()
   await expect.element(screen.getByRole('heading', { name: title })).not.toBeInTheDocument()
@@ -110,7 +110,7 @@ it.each([false, true])(
     onTestFinished(() => queryClient.clear())
     const code = screen.getByRole('textbox')
     await expect.element(code).toHaveFocus()
-    expect(document.title).toBe('deviceFlow.codeEntry.title - Dify')
+    expect(document.title).toBe('deviceFlow.codeEntry.title - Tacit')
     await expect
       .element(screen.getByRole('heading', { name: 'deviceFlow.errorSso.title' }))
       .not.toBeInTheDocument()

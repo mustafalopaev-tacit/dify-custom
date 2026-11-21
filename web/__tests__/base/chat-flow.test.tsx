@@ -119,7 +119,7 @@ describe('Base Chat Flow', () => {
   describe('Chat With History Shell', () => {
     it('uses the site title for the document', () => {
       render(<ChatWithHistory />)
-      expect(document.title).toBe('Test Chat - Dify')
+      expect(document.title).toBe('Test Chat - Tacit')
     })
 
     it('renders a new theme when site configuration changes', () => {
@@ -153,7 +153,7 @@ describe('Base Chat Flow', () => {
 
       render(<ChatWithHistory />)
 
-      expect(document.title).toBe('Chat - Dify')
+      expect(document.title).toBe('Chat - Tacit')
       expect(screen.getByRole('progressbar', { name: 'common.loading' })).toBeInTheDocument()
     })
   })
