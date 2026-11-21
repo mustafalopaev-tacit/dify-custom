@@ -44,6 +44,8 @@ Keep it on its own instance, separate from the tacit servers, in the existing de
 
 We need three things: create the AWS services, lock them down, and add a GitHub pipeline so every merge to `main` in our Dify fork deploys automatically.
 
+This is implemented in [`deploy/tacit-aws/`](../deploy/tacit-aws/README.md) (CloudFormation stack `tacit-dify` and the host scripts) and [`.github/workflows/tacit-deploy.yml`](../.github/workflows/tacit-deploy.yml).
+
 ### 1. Create the AWS services (eu-west-2)
 
 | Service | What we create | Purpose |

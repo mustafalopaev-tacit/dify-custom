@@ -1,0 +1,585 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >-
+  Tacit Dify, Option A: one EC2 host running Docker Compose, with S3 file storage,
+  ECR images, Secrets Manager, SSM deploys, daily snapshots and CloudWatch alarms.
+  See "docs/Dify on AWS — Option A Plan.md".
+
+Parameters:
+  InstanceType:
+    Type: String
+    Default: m7i.xlarge
+  UbuntuAmi:
+    Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+    Default: /aws/service/canonical/ubuntu/server/24.04/stable/current/amd64/hvm/ebs-gp3/ami-id
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: The account's default VPC
+  GitHubRepo:
+    Type: String
+    Default: mustafalopaev-tacit/dify-custom
+  GitHubBranch:
+    Type: String
+    Default: main
+
+Resources:
+  # ---------- Storage, images, secret ----------
+  FilesBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketName: !Sub tacit-dify-files-${AWS::AccountId}-${AWS::Region}
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      VersioningConfiguration:
+        Status: Enabled
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-release-bundles
+            Status: Enabled
+            Prefix: deploy/
+            ExpirationInDays: 30
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 1
+          - Id: expire-db-dumps
+            Status: Enabled
+            Prefix: backups/
+            ExpirationInDays: 30
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 1
+          - Id: expire-old-file-versions
+            Status: Enabled
+            NoncurrentVersionExpiration:
+              NoncurrentDays: 30
+      Tags:
+        - { Key: Project, Value: tacit-dify }
+
+  FilesBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref FilesBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: '*'
+            Action: 's3:*'
+            Resource:
+              - !GetAtt FilesBucket.Arn
+              - !Sub ${FilesBucket.Arn}/*
+            Condition:
+              Bool:
+                aws:SecureTransport: 'false'
+
+  WebRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      RepositoryName: tacit-dify-web
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration: { ScanOnPush: true }
+      EncryptionConfiguration: { EncryptionType: AES256 }
+      LifecyclePolicy:
+        LifecyclePolicyText: >-
+          {"rules":[{"rulePriority":1,"description":"Keep the last 30 images",
+          "selection":{"tagStatus":"any","countType":"imageCountMoreThan","countNumber":30},
+          "action":{"type":"expire"}}]}
+      Tags:
+        - { Key: Project, Value: tacit-dify }
+
+  ApiRepository:
+    Type: AWS::ECR::Repository
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      RepositoryName: tacit-dify-api
+      ImageTagMutability: IMMUTABLE
+      ImageScanningConfiguration: { ScanOnPush: true }
+      EncryptionConfiguration: { EncryptionType: AES256 }
+      LifecyclePolicy:
+        LifecyclePolicyText: >-
+          {"rules":[{"rulePriority":1,"description":"Keep the last 30 images",
+          "selection":{"tagStatus":"any","countType":"imageCountMoreThan","countNumber":30},
+          "action":{"type":"expire"}}]}
+      Tags:
+        - { Key: Project, Value: tacit-dify }
+
+  # Values are written once, outside CloudFormation, so they never appear in the template.
+  EnvSecret:
+    Type: AWS::SecretsManager::Secret
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      Name: tacit-dify/env
+      Description: Dify secret settings (JSON object of KEY=VALUE) written into docker/.env at deploy time
+      SecretString: '{}'
+      Tags:
+        - { Key: Project, Value: tacit-dify }
+
+  # ---------- Instance role ----------
+  InstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: tacit-dify-instance-role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: { Service: ec2.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+      Policies:
+        - PolicyName: tacit-dify-instance
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: BedrockEuInferenceProfiles
+                Effect: Allow
+                Action:
+                  - bedrock:InvokeModel
+                  - bedrock:InvokeModelWithResponseStream
+                Resource: !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/eu.*
+              - Sid: BedrockModelsBehindEuProfiles
+                Effect: Allow
+                Action:
+                  - bedrock:InvokeModel
+                  - bedrock:InvokeModelWithResponseStream
+                Resource: arn:aws:bedrock:*::foundation-model/*
+                Condition:
+                  StringLike:
+                    bedrock:InferenceProfileArn: !Sub arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/eu.*
+              - Sid: BedrockRead
+                Effect: Allow
+                Action:
+                  - bedrock:ListFoundationModels
+                  - bedrock:GetFoundationModel
+                  - bedrock:ListInferenceProfiles
+                  - bedrock:GetInferenceProfile
+                Resource: '*'
+              - Sid: FilesBucketList
+                Effect: Allow
+                Action: s3:ListBucket
+                Resource: !GetAtt FilesBucket.Arn
+              - Sid: FilesBucketObjects
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                  - s3:DeleteObject
+                Resource: !Sub ${FilesBucket.Arn}/*
+              - Sid: EcrAuth
+                Effect: Allow
+                Action: ecr:GetAuthorizationToken
+                Resource: '*'
+              - Sid: EcrPull
+                Effect: Allow
+                Action:
+                  - ecr:BatchGetImage
+                  - ecr:GetDownloadUrlForLayer
+                  - ecr:BatchCheckLayerAvailability
+                Resource:
+                  - !GetAtt WebRepository.Arn
+                  - !GetAtt ApiRepository.Arn
+              - Sid: ReadEnvSecret
+                Effect: Allow
+                Action: secretsmanager:GetSecretValue
+                Resource: !Ref EnvSecret
+
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      InstanceProfileName: tacit-dify-instance-profile
+      Roles: [!Ref InstanceRole]
+
+  # ---------- Network ----------
+  SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: tacit-dify-sg
+      GroupDescription: Tacit Dify - HTTPS and HTTP (redirects and Lets Encrypt) only - no SSH
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - { IpProtocol: tcp, FromPort: 443, ToPort: 443, CidrIp: 0.0.0.0/0, Description: HTTPS }
+        - { IpProtocol: tcp, FromPort: 443, ToPort: 443, CidrIpv6: '::/0', Description: HTTPS }
+        - {
+            IpProtocol: tcp,
+            FromPort: 80,
+            ToPort: 80,
+            CidrIp: 0.0.0.0/0,
+            Description: HTTP for Lets Encrypt,
+          }
+        - {
+            IpProtocol: tcp,
+            FromPort: 80,
+            ToPort: 80,
+            CidrIpv6: '::/0',
+            Description: HTTP for Lets Encrypt,
+          }
+      Tags:
+        - { Key: Name, Value: tacit-dify-sg }
+        - { Key: Project, Value: tacit-dify }
+
+  ElasticIp:
+    Type: AWS::EC2::EIP
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      Domain: vpc
+      Tags:
+        - { Key: Name, Value: tacit-dify }
+        - { Key: Project, Value: tacit-dify }
+
+  # ---------- Instance ----------
+  LaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: tacit-dify
+      LaunchTemplateData:
+        MetadataOptions:
+          HttpTokens: required
+          HttpEndpoint: enabled
+          # 2, so Docker containers can reach the metadata service for role credentials.
+          HttpPutResponseHopLimit: 2
+        DisableApiTermination: true
+        BlockDeviceMappings:
+          - DeviceName: /dev/sda1
+            Ebs:
+              VolumeSize: 100
+              VolumeType: gp3
+              Encrypted: true
+              DeleteOnTermination: false
+        TagSpecifications:
+          - ResourceType: volume
+            Tags:
+              - { Key: Name, Value: tacit-dify-root }
+              - { Key: Project, Value: tacit-dify }
+              - { Key: Backup, Value: tacit-dify-daily }
+
+  Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref UbuntuAmi
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref InstanceProfile
+      SecurityGroupIds: [!GetAtt SecurityGroup.GroupId]
+      LaunchTemplate:
+        LaunchTemplateId: !Ref LaunchTemplate
+        Version: !GetAtt LaunchTemplate.LatestVersionNumber
+      Tags:
+        - { Key: Name, Value: tacit-dify }
+        - { Key: Project, Value: tacit-dify }
+      UserData:
+        Fn::Base64: !Sub
+          - |
+            #!/bin/bash
+            # Host bootstrap: Docker, AWS CLI, CloudWatch agent, host settings, cron.
+            # Dify itself is installed by the first deploy (SSM document tacit-dify-deploy).
+            set -euxo pipefail
+            export DEBIAN_FRONTEND=noninteractive HOME=/root
+
+            apt-get update
+            apt-get install -y ca-certificates curl jq unzip rsync
+            install -m 0755 -d /etc/apt/keyrings
+            curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+            echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu noble stable" \
+              > /etc/apt/sources.list.d/docker.list
+            apt-get update
+            apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+            cat > /etc/docker/daemon.json <<'JSON'
+            {"log-driver": "json-file", "log-opts": {"max-size": "50m", "max-file": "5"}}
+            JSON
+            systemctl enable docker
+            systemctl restart docker
+
+            curl -fsSL https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o /tmp/awscliv2.zip
+            unzip -q /tmp/awscliv2.zip -d /tmp && /tmp/aws/install && rm -rf /tmp/aws /tmp/awscliv2.zip
+
+            curl -fsSL https://amazoncloudwatch-agent.s3.amazonaws.com/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb \
+              -o /tmp/cwagent.deb
+            dpkg -i /tmp/cwagent.deb && rm /tmp/cwagent.deb
+            cat > /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json <<'JSON'
+            {
+              "agent": {"metrics_collection_interval": 60},
+              "metrics": {
+                "namespace": "CWAgent",
+                "append_dimensions": {"InstanceId": "${!aws:InstanceId}"},
+                "metrics_collected": {
+                  "disk": {"resources": ["/"], "measurement": ["used_percent"], "drop_device": true},
+                  "mem": {"measurement": ["used_percent"]}
+                }
+              }
+            }
+            JSON
+            /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 \
+              -c file:/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json -s
+
+            TOKEN=$(curl -sX PUT http://169.254.169.254/latest/api/token -H 'X-aws-ec2-metadata-token-ttl-seconds: 60')
+            INSTANCE_ID=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/instance-id)
+
+            mkdir -p /opt/dify/docker /opt/dify/bin /opt/dify/releases
+            cat > /opt/dify/host.env <<EOF
+            AWS_REGION=${AWS::Region}
+            AWS_DEFAULT_REGION=${AWS::Region}
+            TACIT_HOST=${Host}
+            TACIT_BUCKET=${FilesBucket}
+            TACIT_SECRET_ID=${EnvSecret}
+            TACIT_ECR_REGISTRY=${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com
+            TACIT_INSTANCE_ID=$INSTANCE_ID
+            EOF
+            chmod 600 /opt/dify/host.env
+
+            cat > /etc/cron.d/tacit-dify <<'EOF'
+            SHELL=/bin/bash
+            PATH=/usr/local/bin:/usr/bin:/bin
+            HOME=/root
+            15 2 * * * root [ -x /opt/dify/bin/backup.sh ] && /opt/dify/bin/backup.sh daily >> /var/log/tacit-dify-backup.log 2>&1
+            */5 * * * * root [ -x /opt/dify/bin/healthcheck.sh ] && /opt/dify/bin/healthcheck.sh >> /var/log/tacit-dify-health.log 2>&1
+            0 4 * * 1 root [ -x /opt/dify/bin/renew-cert.sh ] && /opt/dify/bin/renew-cert.sh >> /var/log/tacit-dify-cert.log 2>&1
+            EOF
+            touch /opt/dify/bootstrap-complete
+          - Host: !Join ['', [!Join ['-', !Split ['.', !Ref ElasticIp]], '.sslip.io']]
+
+  ElasticIpAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Properties:
+      AllocationId: !GetAtt ElasticIp.AllocationId
+      InstanceId: !Ref Instance
+
+  # ---------- Deploys ----------
+  DeployDocument:
+    Type: AWS::SSM::Document
+    Properties:
+      Name: tacit-dify-deploy
+      DocumentType: Command
+      UpdateMethod: NewVersion
+      Content:
+        schemaVersion: '2.2'
+        description: Deploy one commit of the Tacit Dify fork (bundle from S3 deploy/<sha>/release.tgz).
+        parameters:
+          Sha:
+            type: String
+            description: Full commit SHA; also the image tag
+            allowedPattern: '^[0-9a-f]{40}$'
+        mainSteps:
+          - action: aws:runShellScript
+            name: deploy
+            inputs:
+              timeoutSeconds: '1800'
+              runCommand:
+                - set -eu
+                - export HOME=/root PATH=/usr/local/bin:/usr/bin:/bin
+                - . /opt/dify/host.env
+                - SHA='{{ Sha }}'
+                - REL="/opt/dify/releases/$SHA"
+                - rm -rf "$REL" && mkdir -p "$REL"
+                - aws s3 cp "s3://$TACIT_BUCKET/deploy/$SHA/release.tgz" "$REL.tgz" --only-show-errors
+                - tar -xzf "$REL.tgz" -C "$REL" && rm -f "$REL.tgz"
+                - exec bash "$REL/deploy/tacit-aws/deploy.sh" "$SHA" "$REL"
+      Tags:
+        - { Key: Project, Value: tacit-dify }
+
+  GitHubDeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: tacit-dify-github-deploy
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Sub arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubRepo}:ref:refs/heads/${GitHubBranch}
+      Policies:
+        - PolicyName: tacit-dify-github-deploy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: EcrAuth
+                Effect: Allow
+                Action: ecr:GetAuthorizationToken
+                Resource: '*'
+              - Sid: EcrPush
+                Effect: Allow
+                Action:
+                  - ecr:BatchCheckLayerAvailability
+                  - ecr:BatchGetImage
+                  - ecr:GetDownloadUrlForLayer
+                  - ecr:InitiateLayerUpload
+                  - ecr:UploadLayerPart
+                  - ecr:CompleteLayerUpload
+                  - ecr:PutImage
+                  - ecr:DescribeImages
+                Resource:
+                  - !GetAtt WebRepository.Arn
+                  - !GetAtt ApiRepository.Arn
+              - Sid: UploadReleaseBundle
+                Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub ${FilesBucket.Arn}/deploy/*
+              - Sid: RunDeployDocumentOnDifyHost
+                Effect: Allow
+                Action: ssm:SendCommand
+                Resource:
+                  - !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:document/tacit-dify-deploy
+                  - !Sub arn:aws:ec2:${AWS::Region}:${AWS::AccountId}:instance/${Instance}
+              - Sid: ReadCommandResults
+                Effect: Allow
+                Action:
+                  - ssm:GetCommandInvocation
+                  - ssm:ListCommandInvocations
+                Resource: '*'
+
+  # ---------- Backups ----------
+  DlmRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: tacit-dify-dlm
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: { Service: dlm.amazonaws.com }
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRole
+
+  SnapshotPolicy:
+    Type: AWS::DLM::LifecyclePolicy
+    Properties:
+      Description: tacit-dify daily root volume snapshots - keep 14
+      State: ENABLED
+      ExecutionRoleArn: !GetAtt DlmRole.Arn
+      PolicyDetails:
+        ResourceTypes: [VOLUME]
+        TargetTags:
+          - { Key: Backup, Value: tacit-dify-daily }
+        Schedules:
+          - Name: daily
+            CreateRule: { Interval: 24, IntervalUnit: HOURS, Times: ['03:00'] }
+            RetainRule: { Count: 14 }
+            CopyTags: true
+      Tags:
+        - { Key: Project, Value: tacit-dify }
+
+  # ---------- Alerts ----------
+  AlertsTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: tacit-dify-alerts
+      Tags:
+        - { Key: Project, Value: tacit-dify }
+
+  SystemStatusAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: tacit-dify-system-status-recover
+      AlarmDescription: AWS hardware/system check failed; recover the instance onto healthy hardware
+      Namespace: AWS/EC2
+      MetricName: StatusCheckFailed_System
+      Dimensions: [{ Name: InstanceId, Value: !Ref Instance }]
+      Statistic: Maximum
+      Period: 60
+      EvaluationPeriods: 2
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      AlarmActions:
+        - !Sub arn:aws:automate:${AWS::Region}:ec2:recover
+        - !Ref AlertsTopic
+
+  InstanceStatusAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: tacit-dify-instance-status
+      Namespace: AWS/EC2
+      MetricName: StatusCheckFailed_Instance
+      Dimensions: [{ Name: InstanceId, Value: !Ref Instance }]
+      Statistic: Maximum
+      Period: 60
+      EvaluationPeriods: 3
+      Threshold: 1
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      AlarmActions: [!Ref AlertsTopic]
+
+  CpuAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: tacit-dify-cpu-high
+      Namespace: AWS/EC2
+      MetricName: CPUUtilization
+      Dimensions: [{ Name: InstanceId, Value: !Ref Instance }]
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 3
+      Threshold: 85
+      ComparisonOperator: GreaterThanThreshold
+      AlarmActions: [!Ref AlertsTopic]
+
+  DiskAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: tacit-dify-disk-high
+      Namespace: CWAgent
+      MetricName: disk_used_percent
+      Dimensions:
+        - { Name: InstanceId, Value: !Ref Instance }
+        - { Name: path, Value: / }
+        - { Name: fstype, Value: ext4 }
+      Statistic: Maximum
+      Period: 300
+      EvaluationPeriods: 1
+      Threshold: 80
+      ComparisonOperator: GreaterThanThreshold
+      AlarmActions: [!Ref AlertsTopic]
+
+  HealthAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: tacit-dify-unhealthy
+      AlarmDescription: https://<host>/console/api/ping failed (or no data) for 15 minutes
+      Namespace: Tacit/Dify
+      MetricName: Healthy
+      Dimensions: [{ Name: InstanceId, Value: !Ref Instance }]
+      Statistic: Minimum
+      Period: 300
+      EvaluationPeriods: 3
+      Threshold: 1
+      ComparisonOperator: LessThanThreshold
+      TreatMissingData: breaching
+      AlarmActions: [!Ref AlertsTopic]
+
+Outputs:
+  InstanceId:
+    Value: !Ref Instance
+  PublicIp:
+    Value: !Ref ElasticIp
+  Url:
+    Value: !Join ['', ['https://', !Join ['-', !Split ['.', !Ref ElasticIp]], '.sslip.io']]
+  FilesBucketName:
+    Value: !Ref FilesBucket
+  EcrRegistry:
+    Value: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com
+  GitHubDeployRoleArn:
+    Value: !GetAtt GitHubDeployRole.Arn
+  SecretArn:
+    Value: !Ref EnvSecret
+  AlertsTopicArn:
+    Value: !Ref AlertsTopic
