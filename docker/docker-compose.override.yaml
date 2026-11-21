@@ -1,0 +1,27 @@
+# Tacit re-brand: run the Tacit-branded web and api images instead of
+# langgenius/dify-web and langgenius/dify-api. Docker Compose loads this file
+# automatically next to docker-compose.yaml, so a host only needs:
+#
+#   docker compose pull && docker compose up -d
+#
+# Set these in docker/.env (see BRANDING.md, "Build and publish the images"):
+#   TACIT_ECR_REGISTRY=<aws-account-id>.dkr.ecr.eu-west-2.amazonaws.com
+#   TACIT_IMAGE_TAG=1.20.0-tacit.1
+#
+# Every service below otherwise keeps its upstream definition.
+x-tacit-api-image: &tacit-api-image ${TACIT_ECR_REGISTRY:?set TACIT_ECR_REGISTRY in docker/.env}/tacit-dify-api:${TACIT_IMAGE_TAG:-1.20.0-tacit.1}
+x-tacit-web-image: &tacit-web-image ${TACIT_ECR_REGISTRY:?set TACIT_ECR_REGISTRY in docker/.env}/tacit-dify-web:${TACIT_IMAGE_TAG:-1.20.0-tacit.1}
+
+services:
+  api:
+    image: *tacit-api-image
+  api_websocket:
+    image: *tacit-api-image
+  worker:
+    image: *tacit-api-image
+  worker_beat:
+    image: *tacit-api-image
+  worker_knowledge_fs_upgrade:
+    image: *tacit-api-image
+  web:
+    image: *tacit-web-image
