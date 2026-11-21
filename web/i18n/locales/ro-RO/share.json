@@ -1,6 +1,6 @@
 {
   "appNotAccessible.description": "Contactați administratorul aplicației dacă aveți nevoie de ajutor.",
-  "appNotAccessible.documentTitle": "Aplicație inaccesibilă · Dify",
+  "appNotAccessible.documentTitle": "Aplicație inaccesibilă · Tacit",
   "appNotAccessible.ipAddress": "Adresa dvs. IP este <ip>{{ip}}</ip>.",
   "appNotAccessible.title": "Această aplicație nu există sau nu poate fi accesată din rețeaua dvs.",
   "chat.chatFormTip": "Setările chat-ului nu pot fi modificate după ce chat-ul a început.",

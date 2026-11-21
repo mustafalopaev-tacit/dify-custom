@@ -38,6 +38,7 @@ import {
   stepByStepTourSkipRecoveryVisibleAtom,
   stepByStepTourStateUpdatingAtom,
 } from '@/app/components/step-by-step-tour/state'
+import { TACIT_BRANDING } from '@/config/tacit-branding'
 import { getLangGeniusVersionInfo } from '@/context/app-context-normalizers'
 import { useDocLink } from '@/context/i18n'
 import {
@@ -200,18 +201,20 @@ const HelpMenu = ({ triggerIcon, triggerClassName, triggerRef, triggerSize }: He
                   trailing={<ExternalLinkIndicator />}
                 />
               </MenuLinkItem>
-              <MenuLinkItem
-                href="https://roadmap.dify.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-8 gap-1 px-3 py-1"
-              >
-                <MenuItemContent
-                  iconClassName="i-ri-map-2-line"
-                  label={t(($) => $['userProfile.roadmap'], { ns: 'common' })}
-                  trailing={<ExternalLinkIndicator />}
-                />
-              </MenuLinkItem>
+              {TACIT_BRANDING.showCommunityLinks && (
+                <MenuLinkItem
+                  href="https://roadmap.dify.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-8 gap-1 px-3 py-1"
+                >
+                  <MenuItemContent
+                    iconClassName="i-ri-map-2-line"
+                    label={t(($) => $['userProfile.roadmap'], { ns: 'common' })}
+                    trailing={<ExternalLinkIndicator />}
+                  />
+                </MenuLinkItem>
+              )}
               {shouldShowLearnDifySwitch && (
                 <MenuCheckboxItem
                   checked={!learnDifyHidden}
@@ -271,26 +274,28 @@ const HelpMenu = ({ triggerIcon, triggerClassName, triggerRef, triggerSize }: He
                   />
                 </MenuLinkItem>
               )}
-              <MenuLinkItem
-                href="https://github.com/langgenius/dify"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-8 gap-1 px-3 py-1.5"
-              >
-                <MenuItemContent
-                  iconClassName="i-ri-github-line"
-                  label={t(($) => $['userProfile.github'], { ns: 'common' })}
-                  trailing={
-                    <div className="flex items-center gap-0.5 rounded-[5px] border border-divider-deep bg-components-badge-bg-dimm px-1.25 py-0.75">
-                      <span
-                        aria-hidden
-                        className="i-ri-star-line size-3 shrink-0 text-text-tertiary"
-                      />
-                      <GithubStar className="system-2xs-medium-uppercase text-text-tertiary" />
-                    </div>
-                  }
-                />
-              </MenuLinkItem>
+              {TACIT_BRANDING.showCommunityLinks && (
+                <MenuLinkItem
+                  href="https://github.com/langgenius/dify"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-8 gap-1 px-3 py-1.5"
+                >
+                  <MenuItemContent
+                    iconClassName="i-ri-github-line"
+                    label={t(($) => $['userProfile.github'], { ns: 'common' })}
+                    trailing={
+                      <div className="flex items-center gap-0.5 rounded-[5px] border border-divider-deep bg-components-badge-bg-dimm px-1.25 py-0.75">
+                        <span
+                          aria-hidden
+                          className="i-ri-star-line size-3 shrink-0 text-text-tertiary"
+                        />
+                        <GithubStar className="system-2xs-medium-uppercase text-text-tertiary" />
+                      </div>
+                    }
+                  />
+                </MenuLinkItem>
+              )}
               {env.NEXT_PUBLIC_SITE_ABOUT !== 'hide' && (
                 <MenuItem className="h-8 gap-1 px-3 py-1.5" onClick={() => setAboutOpen(true)}>
                   <MenuItemContent

@@ -148,13 +148,13 @@ class TestEmailI18nService:
         assert template_path == "reset_password_en.html"
         assert context["reset_link"] == "https://example.com/reset"
         assert context["branding_enabled"] is False
-        assert context["application_title"] == "Dify"
+        assert context["application_title"] == "Tacit"
 
         # Verify email was sent
         assert len(mock_sender.sent_emails) == 1
         sent_email = mock_sender.sent_emails[0]
         assert sent_email["to"] == "test@example.com"
-        assert sent_email["subject"] == "Reset Your Dify Password"
+        assert sent_email["subject"] == "Reset Your Tacit Password"
         assert "reset_password_en.html" in sent_email["html_content"]
 
     def test_send_email_with_chinese_language(
@@ -173,7 +173,7 @@ class TestEmailI18nService:
         # Verify email was sent with Chinese subject
         assert len(mock_sender.sent_emails) == 1
         sent_email = mock_sender.sent_emails[0]
-        assert sent_email["subject"] == "重置您的 Dify 密码"
+        assert sent_email["subject"] == "重置您的 Tacit 密码"
 
     def test_send_email_with_branding_enabled(
         self,
@@ -226,7 +226,7 @@ class TestEmailI18nService:
         # Should fall back to English
         assert len(mock_sender.sent_emails) == 1
         sent_email = mock_sender.sent_emails[0]
-        assert sent_email["subject"] == "Join Dify Workspace"
+        assert sent_email["subject"] == "Join Tacit Workspace"
 
     def test_send_email_with_unknown_language_code(
         self,
@@ -243,7 +243,7 @@ class TestEmailI18nService:
         # Should use English
         assert len(mock_sender.sent_emails) == 1
         sent_email = mock_sender.sent_emails[0]
-        assert sent_email["subject"] == "Reset Your Dify Password"
+        assert sent_email["subject"] == "Reset Your Tacit Password"
 
     def test_subject_format_keyerror_fallback_path(
         self,
@@ -598,6 +598,6 @@ def test_account_deletion_success_email_renders_chinese_template(branding_enable
     assert len(sender.sent_emails) == 1
     sent_email = sender.sent_emails[0]
     assert sent_email["to"] == "recipient@example.com"
-    assert sent_email["subject"] == "您的 Dify.AI 账户已成功删除"
-    assert "您的 Dify.AI 账户已成功删除" in sent_email["html_content"]
+    assert sent_email["subject"] == "您的 Tacit 账户已成功删除"
+    assert "您的 Tacit 账户已成功删除" in sent_email["html_content"]
     assert "30 天后" in sent_email["html_content"]

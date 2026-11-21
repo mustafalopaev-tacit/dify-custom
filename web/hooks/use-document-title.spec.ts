@@ -20,7 +20,7 @@ describe('useDocumentTitle', () => {
     renderHookWithConsoleQuery(() => useDocumentTitle('Settings'), {
       systemFeatures: { branding: { enabled: false } },
     })
-    expect(document.title).toBe('Settings - Dify')
+    expect(document.title).toBe('Settings - Tacit')
   })
 
   it('uses the configured product name with or without a page title', () => {
@@ -35,11 +35,11 @@ describe('useDocumentTitle', () => {
   })
 
   it('preserves route metadata when no client title is provided', () => {
-    document.title = 'Route title - Dify'
+    document.title = 'Route title - Tacit'
 
     renderHookWithConsoleQuery(() => useDocumentTitle(null))
 
-    expect(document.title).toBe('Route title - Dify')
+    expect(document.title).toBe('Route title - Tacit')
   })
 
   it('does not mutate framework-owned favicon metadata', () => {

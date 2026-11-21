@@ -43,7 +43,7 @@ it('puts the cursor in the password field on arrival', async () => {
   const screen = await renderPopup()
 
   await expect.element(screen.getByLabelText('login.adminInitPassword')).toHaveFocus()
-  await expect.poll(() => document.title).toBe('login.adminInitPassword - Dify')
+  await expect.poll(() => document.title).toBe('login.adminInitPassword - Tacit')
 })
 
 it('asks for the password before submitting', async () => {

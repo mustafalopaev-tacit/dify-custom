@@ -8,8 +8,8 @@
     body {
       font-family: 'Arial', sans-serif;
       line-height: 16pt;
-      color: #374151;
-      background-color: #E5E7EB;
+      color: #3f3f46;
+      background-color: #e4e4e7;
       margin: 0;
       padding: 0;
     }
@@ -30,14 +30,14 @@
     }
 
     .header img {
-      max-width: 63px;
+      max-width: 120px;
       height: auto;
     }
     .title {
       margin: 0;
       padding-top: 8px;
       padding-bottom: 16px;
-      color: #101828;
+      color: #09090b;
       font-size: 24px;
       font-family: Inter;
       font-style: normal;
@@ -47,13 +47,13 @@
     .button {
       display: block;
       padding: 8px 12px;
-      color: white;
+      color: #09090b;
       text-decoration: none;
       border-radius: 10px;
       text-align: center;
       transition: background-color 0.3s ease;
       border: 0.5px solid rgba(16, 24, 40, 0.04);
-      background-color: #155AEF;
+      background-color: #007957;
       box-shadow: 0px -6px 12px -4px rgba(9, 9, 11, 0.08) inset, 0px 0px 1px 0px rgba(255, 255, 255, 0.16) inset, 0px 0.5px 0px 0px rgba(255, 255, 255, 0.08) inset, 0px 2px 2px -1px rgba(0, 0, 0, 0.12), 0px 1px 1px -1px rgba(0, 0, 0, 0.12), 0px 0px 0px 0.5px rgba(9, 9, 11, 0.05);
       font-family: Inter;
       font-size: 14px;
@@ -62,12 +62,12 @@
       line-height: 20px; /* 142.857% */
     }
     .button:hover {
-      background-color: #004AEB;
+      background-color: #26A582;
       border: 0.5px solid rgba(16, 24, 40, 0.08);
       box-shadow: 0px 1px 2px 0px rgba(9, 9, 11, 0.05);
     }
     .content {
-      color: #354052;
+      color: #3f3f46;
       font-family: Inter;
       font-size: 14px;
       font-style: normal;
@@ -90,9 +90,9 @@
       margin-bottom: 20px;
       padding: 16px 24px;
       border-radius: 16px;
-      background-color: #F2F4F7;
+      background-color: #f4f4f5;
       list-style-type: none;
-      color: #354052;
+      color: #3f3f46;
       font-family: Inter;
       font-size: 14px;
       font-style: normal;
@@ -112,7 +112,7 @@
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <img src="https://assets.dify.ai/images/logo.png" alt="Dify Logo">
+      <img src="{{ config.CONSOLE_WEB_URL }}/logo/logo-email.png" alt="Tacit">
     </div>
 
     <!-- Content -->
@@ -131,10 +131,10 @@
       </ul>
       <p class="content2">You can re-enable them anytime.</p>
       <p style="text-align: center; margin: 0; margin-bottom: 44px;">
-        <a href={{url}} class="button">Re-enable in Dify</a>
+        <a href={{url}} class="button">Re-enable in Tacit</a>
       </p>
       <p class="content2">Best regards,</p>
-      <p class="content2">Dify Team</p>
+      <p class="content2">Tacit Team</p>
     </div>
   </div>
 </body>

@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} trang",
   "sourceTypeLabel": "Loại nguồn",
   "sourcesDescription": "Kiến thức đến từ đâu, nó mới như thế nào và liệu lần đồng bộ hóa cuối cùng có thành công hay không.",
-  "sourcesEmptyDescription": "Kết nối trang web, không gian làm việc hoặc ổ đĩa — Dify luôn đồng bộ và cập nhật nội dung để việc truy xuất không bao giờ bị gián đoạn.",
+  "sourcesEmptyDescription": "Kết nối trang web, không gian làm việc hoặc ổ đĩa — Tacit luôn đồng bộ và cập nhật nội dung để việc truy xuất không bao giờ bị gián đoạn.",
   "sourcesEmptyTitle": "Chưa có nguồn nào được kết nối",
   "sourcesErrorTitle": "Không thể tải nguồn",
   "stoppingCrawl": "Đang dừng…",

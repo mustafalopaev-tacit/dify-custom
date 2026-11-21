@@ -65,6 +65,7 @@ const Operation: FC<OperationProps> = ({
             theme
               ? {
                   backgroundColor: theme.primaryColor,
+                  color: theme.primaryForegroundColor,
                 }
               : {}
           }

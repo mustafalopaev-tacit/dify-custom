@@ -117,12 +117,12 @@ it('cancels an upload, accepts the same file again, then applies and restores th
   })
   expect(screen.queryByRole('button', { name: 'custom.apply' })).not.toBeInTheDocument()
   await user.click(screen.getByRole('button', { name: 'custom.restore' }))
-  await waitFor(() => expect(screen.getAllByRole('img', { name: 'Dify' })).toHaveLength(2))
+  await waitFor(() => expect(screen.getAllByRole('img', { name: 'Tacit' })).toHaveLength(2))
   expect(uploadInput()).toBeEnabled()
   expect(updateConfig).toHaveBeenLastCalledWith({
     body: { remove_webapp_brand: false, replace_webapp_logo: '' },
   })
-  expect(screen.getAllByRole('img', { name: 'Dify' })).toHaveLength(2)
+  expect(screen.getAllByRole('img', { name: 'Tacit' })).toHaveLength(2)
 })
 
 it('removes branding from both previews and restores it when switched back on', async () => {

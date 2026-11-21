@@ -23,7 +23,7 @@ export default function EducationShell({ children }: EducationShellProps) {
           aria-hidden="true"
         />
         <div className="-mt-87.25 box-content flex h-7 items-center p-6">
-          <DifyLogo alt="Dify" size="large" className="brightness-0 invert" />
+          <DifyLogo alt="Tacit" size="large" className="brightness-0 invert" />
         </div>
         <section className="mx-auto max-w-180 px-8 pb-45" aria-labelledby="education-page-title">
           <header className="mb-2 flex h-48 flex-col justify-end pt-3 pb-4 text-text-primary-on-surface">

@@ -27,7 +27,7 @@
   "stepByStepTour.guides.integration.updateSettings.title": "Yeniləmə parametrləri",
   "stepByStepTour.guides.knowledge.empty.connect.description": "Artıq başqa yerdə bilik bazanız var? Onu API vasitəsilə qoşun, məlumatları köçürməyə ehtiyac yoxdur.",
   "stepByStepTour.guides.knowledge.empty.connect.title": "Xarici bilik bazasına qoşulma",
-  "stepByStepTour.guides.knowledge.empty.create.description": "Başlamağın ən sürətli yolu. Sənədləri yükləyin, Dify onları sizin üçün fraqmentlərə böləcək, indeksləyəcək və vektorlaşdıracaq. İstənilən vaxt fərdi quruluşa keçə bilərsiniz.",
+  "stepByStepTour.guides.knowledge.empty.create.description": "Başlamağın ən sürətli yolu. Sənədləri yükləyin, Tacit onları sizin üçün fraqmentlərə böləcək, indeksləyəcək və vektorlaşdıracaq. İstənilən vaxt fərdi quruluşa keçə bilərsiniz.",
   "stepByStepTour.guides.knowledge.empty.create.title": "İstifadəyə hazır bilik bazasının yaradılması",
   "stepByStepTour.guides.knowledge.empty.pipeline.description": "Sənədlərin axtarışa necə hazırlandığına daha dəqiq nəzarət lazım olduqda öz fraqmentlərə bölmə, təmizləmə və indeksləmə axınınızı müəyyən edin.",
   "stepByStepTour.guides.knowledge.empty.pipeline.title": "Fərdi bilik bazasının qurulması",
@@ -40,9 +40,9 @@
   "stepByStepTour.guides.studio.empty.blank.title": "Sıfırdan yaratma",
   "stepByStepTour.guides.studio.empty.dsl.description": "Paylaşılmış və ya ehtiyat nüsxəsi yaradılmış tətbiqi bərpa etmək üçün tətbiq paketi və ya DSL faylı idxal edin.",
   "stepByStepTour.guides.studio.empty.dsl.title": "Tətbiq idxal et",
-  "stepByStepTour.guides.studio.empty.learnDify.description": "Dify ilə yeni tanış olursunuz? Əvvəlcə bələdçili dərs keçin, iş axınlarının, agentlərin və digər imkanların necə işlədiyini görəcəksiniz.",
+  "stepByStepTour.guides.studio.empty.learnDify.description": "Tacit ilə yeni tanış olursunuz? Əvvəlcə bələdçili dərs keçin, iş axınlarının, agentlərin və digər imkanların necə işlədiyini görəcəksiniz.",
   "stepByStepTour.guides.studio.empty.learnDify.title": "Və ya «Dify-ı öyrən» bölməsi ilə başlanğıc",
-  "stepByStepTour.guides.studio.empty.template.description": "Dify şablonlarına baxın və qurmaq istədiyinizə uyğun olanı seçin. Hər şeyi sıfırdan yazmadan başlamaq üçün əla yoldur.",
+  "stepByStepTour.guides.studio.empty.template.description": "Tacit şablonlarına baxın və qurmaq istədiyinizə uyğun olanı seçin. Hər şeyi sıfırdan yazmadan başlamaq üçün əla yoldur.",
   "stepByStepTour.guides.studio.empty.template.title": "Şablondan yaratma",
   "stepByStepTour.guides.studio.noCreate.empty.description": "Bu iş sahəsindəki tətbiqlərə baxa bilərsiniz, lakin burada hələ tətbiq yoxdur. Tətbiq yaratmaq və ya redaktə etmək üçün iş sahəsini dəyişin və ya iş sahəsinin sahibindən və ya inzibatçısından giriş icazəsi istəyin.",
   "stepByStepTour.guides.studio.noCreate.empty.title": "Baxmaq üçün hələ tətbiq yoxdur",
@@ -83,5 +83,5 @@
   "stepByStepTour.tasks.studio.noCreate.title": "Studiyadakı tətbiqləriniz",
   "stepByStepTour.tasks.studio.primaryActionLabel": "Nəzər sal",
   "stepByStepTour.tasks.studio.title": "Studiyada tətbiqlərinizin idarə edilməsi",
-  "stepByStepTour.title": "Dify ilə tanışlıq"
+  "stepByStepTour.title": "Tacit ilə tanışlıq"
 }

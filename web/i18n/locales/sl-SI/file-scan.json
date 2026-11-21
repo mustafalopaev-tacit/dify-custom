@@ -7,7 +7,7 @@
   "dialog.endpoint": "Končna točka (izbirno)",
   "dialog.endpointDescription": "Samo za zasebni primerek Cloudmersive. Biti mora naslov URL HTTPS.",
   "dialog.endpointUrl": "URL končne točke",
-  "dialog.endpointUrlDescription": "Dify vsako datoteko pošlje na ta naslov in pričakuje rezultat preverjanja. Oblika zahteve je opisana v dokumentaciji za pomoč.",
+  "dialog.endpointUrlDescription": "Tacit vsako datoteko pošlje na ta naslov in pričakuje rezultat preverjanja. Oblika zahteve je opisana v dokumentaciji za pomoč.",
   "dialog.endpointUrlInvalid": "Vnesite veljaven naslov, ki se začne s http:// ali https://.",
   "dialog.getApiKey": "Pridobi ključ API pri {{vendor}}",
   "dialog.name": "Ime",

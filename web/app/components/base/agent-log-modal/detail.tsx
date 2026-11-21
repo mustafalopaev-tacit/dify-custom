@@ -37,7 +37,7 @@ const AgentLogDetail: FC<AgentLogDetailProps> = ({
           type="button"
           className={cn(
             'me-6 cursor-pointer border-x-0 border-t-0 border-b-2 border-transparent bg-transparent px-0 py-3 text-start text-[13px] leading-4.5 font-semibold text-text-tertiary focus-visible:ring-1 focus-visible:ring-components-input-border-active focus-visible:outline-hidden',
-            currentTab === 'DETAIL' && 'border-[rgb(21,94,239)]! text-text-secondary',
+            currentTab === 'DETAIL' && 'border-state-accent-solid! text-text-secondary',
           )}
           data-active={currentTab === 'DETAIL'}
           onClick={() => setCurrentTab('DETAIL')}
@@ -48,7 +48,7 @@ const AgentLogDetail: FC<AgentLogDetailProps> = ({
           type="button"
           className={cn(
             'me-6 cursor-pointer border-x-0 border-t-0 border-b-2 border-transparent bg-transparent px-0 py-3 text-start text-[13px] leading-4.5 font-semibold text-text-tertiary focus-visible:ring-1 focus-visible:ring-components-input-border-active focus-visible:outline-hidden',
-            currentTab === 'TRACING' && 'border-[rgb(21,94,239)]! text-text-secondary',
+            currentTab === 'TRACING' && 'border-state-accent-solid! text-text-secondary',
           )}
           data-active={currentTab === 'TRACING'}
           onClick={() => setCurrentTab('TRACING')}

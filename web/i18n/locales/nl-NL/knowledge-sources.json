@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} pagina’s",
   "sourceTypeLabel": "Brontype",
   "sourcesDescription": "Waar kennis vandaan komt, hoe vers deze is en of de laatste synchronisatie is gelukt.",
-  "sourcesEmptyDescription": "Koppel een website, werkruimte of schijf — Dify houdt deze gesynchroniseerd en actueel, zodat het ophalen nooit wordt onderbroken.",
+  "sourcesEmptyDescription": "Koppel een website, werkruimte of schijf — Tacit houdt deze gesynchroniseerd en actueel, zodat het ophalen nooit wordt onderbroken.",
   "sourcesEmptyTitle": "Nog geen bronnen aangesloten",
   "sourcesErrorTitle": "Bronnen konden niet laden",
   "stoppingCrawl": "Bezig met stoppen…",

@@ -844,7 +844,7 @@ describe('DocumentDetailPage', () => {
     await render(<DocumentDetailPage documentId="document-1" knowledgeSpaceId="space-1" />)
 
     await waitFor(() =>
-      expect(document.title).toBe('sso-enterprise.pdf · Support knowledge - Dify'),
+      expect(document.title).toBe('sso-enterprise.pdf · Support knowledge - Tacit'),
     )
   })
 

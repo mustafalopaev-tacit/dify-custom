@@ -87,6 +87,6 @@ describe('Human Input migration locales', () => {
     expect(enUS['nodes.humanInputMigration.dialog.draftNotice']).toBe(
       'Only this draft changes. Published versions keep running until you publish again.',
     )
-    expect(enUS['nodes.humanInputMigration.preview.author']).toBe('By Dify Team')
+    expect(enUS['nodes.humanInputMigration.preview.author']).toBe('By Tacit Team')
   })
 })

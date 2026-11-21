@@ -4,6 +4,7 @@ import {
   ExternalLinkIndicator,
   MenuItemContent,
 } from '@/app/components/header/account-menu/menu-item-content'
+import { TACIT_BRANDING } from '@/config/tacit-branding'
 import ContactSupport from './contact-support'
 
 export default function SupportMenu() {
@@ -12,18 +13,20 @@ export default function SupportMenu() {
   return (
     <>
       <ContactSupport placement="menu" />
-      <MenuLinkItem
-        className="h-8 gap-1 px-3 py-1"
-        href="https://discord.gg/5AEfbxcd9k"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <MenuItemContent
-          iconClassName="i-ri-discord-line"
-          label={t(($) => $['userProfile.discord'], { ns: 'common' })}
-          trailing={<ExternalLinkIndicator />}
-        />
-      </MenuLinkItem>
+      {TACIT_BRANDING.showCommunityLinks && (
+        <MenuLinkItem
+          className="h-8 gap-1 px-3 py-1"
+          href="https://discord.gg/5AEfbxcd9k"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <MenuItemContent
+            iconClassName="i-ri-discord-line"
+            label={t(($) => $['userProfile.discord'], { ns: 'common' })}
+            trailing={<ExternalLinkIndicator />}
+          />
+        </MenuLinkItem>
+      )}
     </>
   )
 }

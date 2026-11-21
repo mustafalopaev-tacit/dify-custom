@@ -1,6 +1,6 @@
 {
   "appNotAccessible.description": "تواصل مع مسؤول التطبيق إذا كنت بحاجة إلى مساعدة.",
-  "appNotAccessible.documentTitle": "التطبيق غير متاح · Dify",
+  "appNotAccessible.documentTitle": "التطبيق غير متاح · Tacit",
   "appNotAccessible.ipAddress": "عنوان IP الخاص بك هو <ip>{{ip}}</ip>.",
   "appNotAccessible.title": "هذا التطبيق غير موجود أو لا يمكن الوصول إليه من شبكتك.",
   "chat.chatFormTip": "لا يمكن تعديل إعدادات الدردشة بعد بدء الدردشة.",

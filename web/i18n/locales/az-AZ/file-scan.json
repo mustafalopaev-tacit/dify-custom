@@ -7,7 +7,7 @@
   "dialog.endpoint": "Son nöqtə (istəyə bağlı)",
   "dialog.endpointDescription": "Yalnız özəl Cloudmersive nüsxəsi üçün. HTTPS URL olmalıdır.",
   "dialog.endpointUrl": "Son nöqtə URL-i",
-  "dialog.endpointUrlDescription": "Dify hər faylı bu ünvana göndərir və yoxlama nəticəsini gözləyir. Sorğu formatı üçün yardım sənədlərinə baxın.",
+  "dialog.endpointUrlDescription": "Tacit hər faylı bu ünvana göndərir və yoxlama nəticəsini gözləyir. Sorğu formatı üçün yardım sənədlərinə baxın.",
   "dialog.endpointUrlInvalid": "http:// və ya https:// ilə başlayan etibarlı ünvan daxil edin.",
   "dialog.getApiKey": "{{vendor}} xidmətindən API açarı alın",
   "dialog.name": "Ad",

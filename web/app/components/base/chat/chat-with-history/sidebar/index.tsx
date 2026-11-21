@@ -187,7 +187,7 @@ const Sidebar = ({ isPanel, toggleButtonRef }: Props) => {
                   className="block h-5 w-auto"
                 />
               ) : (
-                <DifyLogo alt="Dify" size="small" />
+                <DifyLogo alt="Tacit" size="small" />
               )}
             </div>
           )}

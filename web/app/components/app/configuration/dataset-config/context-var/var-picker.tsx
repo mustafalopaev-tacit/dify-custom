@@ -21,8 +21,8 @@ export type Props = Readonly<{
 
 const VarItem: FC<{ item: Option }> = ({ item }) => (
   <div className="flex h-4.5 items-center space-x-1 rounded-sm bg-[#EFF8FF] px-1">
-    <IconTypeIcon type={item.type as IInputTypeIconProps['type']} className="text-[#1570EF]" />
-    <div className="flex text-xs font-medium text-[#1570EF]">
+    <IconTypeIcon type={item.type as IInputTypeIconProps['type']} className="text-text-accent" />
+    <div className="flex text-xs font-medium text-text-accent">
       <span className="opacity-60">{'{{'}</span>
       <span className="max-w-37.5 truncate">{item.value}</span>
       <span className="opacity-60">{'}}'}</span>

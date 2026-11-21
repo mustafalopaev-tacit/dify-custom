@@ -7,7 +7,7 @@
   "dialog.endpoint": "Uç nokta (isteğe bağlı)",
   "dialog.endpointDescription": "Yalnızca özel bir Cloudmersive örneği için. HTTPS URL'si olmalıdır.",
   "dialog.endpointUrl": "Uç nokta URL'si",
-  "dialog.endpointUrlDescription": "Dify her dosyayı bu adrese gönderir ve bir sonuç bekler. İstek biçimi için yardım belgelerine bakın.",
+  "dialog.endpointUrlDescription": "Tacit her dosyayı bu adrese gönderir ve bir sonuç bekler. İstek biçimi için yardım belgelerine bakın.",
   "dialog.endpointUrlInvalid": "http:// veya https:// ile başlayan geçerli bir adres girin.",
   "dialog.getApiKey": "{{vendor}} üzerinden API anahtarı alın",
   "dialog.name": "Ad",

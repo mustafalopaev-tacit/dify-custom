@@ -26,13 +26,13 @@ describe('SnippetLayout', () => {
       </SnippetLayout>,
     )
 
-    expect(document.title).toBe('snippet.typeLabel - Dify')
+    expect(document.title).toBe('snippet.typeLabel - Tacit')
     rerender(
       <SnippetLayout snippetId="snippet-1" snippet={createSnippet()} section="orchestrate">
         <div>content</div>
       </SnippetLayout>,
     )
-    expect(document.title).toBe('Snippet Title - Dify')
+    expect(document.title).toBe('Snippet Title - Tacit')
     expect(screen.getByText('content')).toBeInTheDocument()
   })
 })

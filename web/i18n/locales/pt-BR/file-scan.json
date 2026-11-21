@@ -7,7 +7,7 @@
   "dialog.endpoint": "Endpoint (opcional)",
   "dialog.endpointDescription": "Somente para uma instância privada do Cloudmersive. Deve ser uma URL HTTPS.",
   "dialog.endpointUrl": "URL do endpoint",
-  "dialog.endpointUrlDescription": "O Dify envia cada arquivo para este endereço e aguarda um veredito. Consulte a documentação de ajuda para ver o formato da requisição.",
+  "dialog.endpointUrlDescription": "O Tacit envia cada arquivo para este endereço e aguarda um veredito. Consulte a documentação de ajuda para ver o formato da requisição.",
   "dialog.endpointUrlInvalid": "Insira um endereço válido que comece com http:// ou https://.",
   "dialog.getApiKey": "Obter chave de API da {{vendor}}",
   "dialog.name": "Nome",

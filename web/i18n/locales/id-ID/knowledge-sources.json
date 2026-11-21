@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} halaman",
   "sourceTypeLabel": "Jenis sumber",
   "sourcesDescription": "Dari mana pengetahuan berasal, seberapa segar pengetahuan tersebut, dan apakah sinkronisasi terakhir berhasil.",
-  "sourcesEmptyDescription": "Hubungkan situs web, ruang kerja, atau drive — Dify menjaganya tetap sinkron dan terbaru agar pengambilan tidak pernah terganggu.",
+  "sourcesEmptyDescription": "Hubungkan situs web, ruang kerja, atau drive — Tacit menjaganya tetap sinkron dan terbaru agar pengambilan tidak pernah terganggu.",
   "sourcesEmptyTitle": "Belum ada sumber yang terhubung",
   "sourcesErrorTitle": "Sumber tidak dapat dimuat",
   "stoppingCrawl": "Menghentikan…",

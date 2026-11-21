@@ -16,7 +16,13 @@ const CustomConnectionLine = ({ fromX, fromY, toX, toY }: ConnectionLineComponen
   return (
     <g>
       <path fill="none" stroke="#D0D5DD" strokeWidth={2} d={edgePath} />
-      <rect x={toX} y={toY - 4} width={2} height={8} fill="#2970FF" />
+      <rect
+        x={toX}
+        y={toY - 4}
+        width={2}
+        height={8}
+        fill="var(--color-workflow-link-line-handle)"
+      />
     </g>
   )
 }

@@ -32,7 +32,7 @@
   "error.passwordEmpty": "Parol tələb olunur",
   "error.passwordInvalid": "Parolda hərflər və rəqəmlər olmalı, uzunluğu isə 8 simvoldan çox olmalıdır",
   "error.ssoFailed": "SSO ilə giriş uğursuz oldu. Yenidən cəhd edin və ya administratorla əlaqə saxlayın.",
-  "explore": "Dify ilə tanış ol",
+  "explore": "Tacit ilə tanış ol",
   "forget": "Parolunuzu unutmusunuz?",
   "forgotPassword": "Parolunuzu unutmusunuz?",
   "forgotPasswordDesc": "Parolunuzu sıfırlamaq üçün e-poçt ünvanınızı daxil edin. Sizə parolun sıfırlanması ilə bağlı təlimatlar olan e-poçt göndərəcəyik.",

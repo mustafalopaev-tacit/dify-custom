@@ -92,7 +92,7 @@ it('keeps incomplete approval available, identifies the invalid OTP, and submits
     ),
   )
   expect(await screen.findByRole('heading', { name: 'share.humanInput.thanks' })).toHaveFocus()
-  await waitFor(() => expect(document.title).toBe('share.humanInput.thanks - Dify'))
+  await waitFor(() => expect(document.title).toBe('share.humanInput.thanks - Tacit'))
 })
 
 it('shows the clicked action as loading, preserves its focus, and prevents resend during submission', async () => {
@@ -186,7 +186,7 @@ it.each([
   const request = vi.spyOn(transport, 'requestAccess')
   render(<HumanInputV2Form token="form-token" transport={transport} />)
   expect(await screen.findByText(text)).toBeVisible()
-  await waitFor(() => expect(document.title).toBe(`${text} - Dify`))
+  await waitFor(() => expect(document.title).toBe(`${text} - Tacit`))
   expect(request).not.toHaveBeenCalled()
 })
 
@@ -206,7 +206,7 @@ it.each([
     />,
   )
   expect(await screen.findByRole('heading', { name: text })).toBeVisible()
-  await waitFor(() => expect(document.title).toBe(`${text} - Dify`))
+  await waitFor(() => expect(document.title).toBe(`${text} - Tacit`))
   expect(requestAccess).not.toHaveBeenCalled()
 })
 
@@ -277,20 +277,20 @@ it('keeps retry focus through another failure and restores focus to verification
     .mockReturnValue(pending.promise)
   render(<HumanInputV2Form token="retry-form" transport={{ ...base, getForm }} />)
   const retry = await screen.findByRole('button', { name: 'share.humanInputV2.retry' })
-  await waitFor(() => expect(document.title).toBe('share.humanInputV2.unknownError - Dify'))
+  await waitFor(() => expect(document.title).toBe('share.humanInputV2.unknownError - Tacit'))
   await user.click(retry)
   expect(retry).toHaveFocus()
   expect(retry).toHaveAttribute('aria-disabled', 'true')
-  expect(document.title).toBe('share.humanInputV2.unknownError - Dify')
+  expect(document.title).toBe('share.humanInputV2.unknownError - Tacit')
   await act(async () => failedRetry.reject(new Error('still offline')))
   expect(retry).toHaveFocus()
   expect(retry).not.toHaveAttribute('aria-disabled', 'true')
-  expect(document.title).toBe('share.humanInputV2.unknownError - Dify')
+  expect(document.title).toBe('share.humanInputV2.unknownError - Tacit')
   await user.click(retry)
   expect(retry).toHaveFocus()
   await act(async () => pending.resolve(definition))
   expect(await screen.findByRole('textbox', { name: 'share.humanInputV2.otpLabel' })).toHaveFocus()
-  await waitFor(() => expect(document.title).toBe('share.humanInputV2.otpLabel - Dify'))
+  await waitFor(() => expect(document.title).toBe('share.humanInputV2.otpLabel - Tacit'))
 })
 
 it('scopes attachment uploads to the displayed token and injected transport after navigation', async () => {

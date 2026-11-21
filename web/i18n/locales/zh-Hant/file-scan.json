@@ -7,7 +7,7 @@
   "dialog.endpoint": "服務位址（選填）",
   "dialog.endpointDescription": "僅在使用私有 Cloudmersive 執行個體時填寫，必須是 HTTPS 網址。",
   "dialog.endpointUrl": "端點 URL",
-  "dialog.endpointUrlDescription": "Dify 會將每個檔案傳送到這個位址並等待判定結果。請求格式請參閱說明文件。",
+  "dialog.endpointUrlDescription": "Tacit 會將每個檔案傳送到這個位址並等待判定結果。請求格式請參閱說明文件。",
   "dialog.endpointUrlInvalid": "請輸入以 http:// 或 https:// 開頭的有效位址。",
   "dialog.getApiKey": "從 {{vendor}} 取得 API Key",
   "dialog.name": "名稱",

@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} səhifə",
   "sourceTypeLabel": "Mənbə növü",
   "sourcesDescription": "Biliklərin haradan gəldiyi, nə qədər aktual olduğu və son sinxronlaşdırmanın uğurlu olub-olmadığı.",
-  "sourcesEmptyDescription": "Sayt, iş sahəsi və ya disk qoşun: Dify onu sinxron və aktual saxlayır ki, məlumat axtarışı heç vaxt pozulmasın.",
+  "sourcesEmptyDescription": "Sayt, iş sahəsi və ya disk qoşun: Tacit onu sinxron və aktual saxlayır ki, məlumat axtarışı heç vaxt pozulmasın.",
   "sourcesEmptyTitle": "Hələ heç bir mənbə qoşulmayıb",
   "sourcesErrorTitle": "Mənbələr yüklənə bilmədi",
   "stoppingCrawl": "Dayandırılır…",

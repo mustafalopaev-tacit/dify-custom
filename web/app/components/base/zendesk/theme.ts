@@ -5,16 +5,17 @@ export function getAppliedTheme(): ResolvedTheme {
 }
 
 // Zendesk renders in its own iframe and expects concrete CSS colors.
+// Tacit re-brand: mint fills with dark ink labels (see BRANDING.md).
 export const zendeskThemes = {
   light: {
-    primary: '#0033ff',
-    onPrimary: '#ffffff',
-    action: '#0033ff',
-    onAction: '#ffffff',
+    primary: '#2db58f',
+    onPrimary: '#09090b',
+    action: '#2db58f',
+    onAction: '#09090b',
     background: '#ffffff',
     onBackground: '#101828',
-    message: '#0033ff',
-    onMessage: '#ffffff',
+    message: '#2db58f',
+    onMessage: '#09090b',
     businessMessage: '#f2f4f7',
     onBusinessMessage: '#101828',
     card: '#f9fafb',
@@ -23,17 +24,17 @@ export const zendeskThemes = {
     onInput: '#101828',
     elevated: '#ffffff',
     onElevated: '#101828',
-    onSecondaryAction: '#0033ff',
+    onSecondaryAction: '#007957',
   },
   dark: {
-    primary: '#085afc',
-    onPrimary: '#ffffff',
-    action: '#085afc',
-    onAction: '#ffffff',
+    primary: '#93e8c9',
+    onPrimary: '#09090b',
+    action: '#93e8c9',
+    onAction: '#09090b',
     background: '#222225',
     onBackground: '#fbfbfc',
-    message: '#085afc',
-    onMessage: '#ffffff',
+    message: '#93e8c9',
+    onMessage: '#09090b',
     businessMessage: '#3a3a40',
     onBusinessMessage: '#fbfbfc',
     card: '#27272b',
@@ -42,7 +43,7 @@ export const zendeskThemes = {
     onInput: '#fbfbfc',
     elevated: '#3a3a40',
     onElevated: '#fbfbfc',
-    onSecondaryAction: '#6694ff',
+    onSecondaryAction: '#93e8c9',
   },
 } satisfies Record<ResolvedTheme, Record<string, string>>
 

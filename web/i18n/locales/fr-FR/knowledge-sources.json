@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} pages",
   "sourceTypeLabel": "Type de source",
   "sourcesDescription": "D'où vient la connaissance, à quel point elle est fraîche et si la dernière synchronisation a réussi.",
-  "sourcesEmptyDescription": "Connectez un site Web, un espace de travail ou un lecteur — Dify le maintient synchronisé et à jour afin que la récupération ne soit jamais interrompue.",
+  "sourcesEmptyDescription": "Connectez un site Web, un espace de travail ou un lecteur — Tacit le maintient synchronisé et à jour afin que la récupération ne soit jamais interrompue.",
   "sourcesEmptyTitle": "Aucune source connectée pour le moment",
   "sourcesErrorTitle": "Les sources n'ont pas pu être chargées",
   "stoppingCrawl": "Arrêt en cours…",

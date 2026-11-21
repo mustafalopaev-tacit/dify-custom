@@ -213,10 +213,10 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, srcs }) => {
     // Draw waveform bars
     data.forEach((value, index) => {
       let color
-      if (index * barWidth <= playedWidth) color = theme === 'light' ? '#296DFF' : '#84ABFF'
+      if (index * barWidth <= playedWidth) color = theme === 'light' ? '#1f9a78' : '#93e8c9'
       else if (((index * barWidth) / width) * duration <= hoverTime)
-        color = theme === 'light' ? 'rgba(21,90,239,.40)' : 'rgba(200, 206, 218, 0.28)'
-      else color = theme === 'light' ? 'rgba(21,90,239,.20)' : 'rgba(200, 206, 218, 0.14)'
+        color = theme === 'light' ? 'rgba(31,154,120,.40)' : 'rgba(200, 206, 218, 0.28)'
+      else color = theme === 'light' ? 'rgba(31,154,120,.20)' : 'rgba(200, 206, 218, 0.14)'
       const barHeight = value * height
       const rectX = index * barWidth
       const rectY = (height - barHeight) / 2

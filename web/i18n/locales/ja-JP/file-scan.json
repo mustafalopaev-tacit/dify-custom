@@ -7,7 +7,7 @@
   "dialog.endpoint": "エンドポイント（任意）",
   "dialog.endpointDescription": "プライベートな Cloudmersive インスタンスを使用する場合のみ入力します。HTTPS の URL である必要があります。",
   "dialog.endpointUrl": "エンドポイント URL",
-  "dialog.endpointUrlDescription": "Dify は各ファイルをこのアドレスに送信し、判定結果を待ちます。リクエスト形式についてはヘルプドキュメントを参照してください。",
+  "dialog.endpointUrlDescription": "Tacit は各ファイルをこのアドレスに送信し、判定結果を待ちます。リクエスト形式についてはヘルプドキュメントを参照してください。",
   "dialog.endpointUrlInvalid": "http:// または https:// で始まる有効なアドレスを入力してください。",
   "dialog.getApiKey": "{{vendor}} から API キーを取得",
   "dialog.name": "名前",

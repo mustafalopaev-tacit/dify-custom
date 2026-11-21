@@ -7,13 +7,14 @@ describe('createTheme', () => {
     expect(theme).toMatchObject({
       chatColorTheme: null,
       chatColorThemeInverted: false,
-      primaryColor: '#1C64F2',
-      backgroundHeaderColorStyle: 'backgroundImage: linear-gradient(to right, #2563eb, #0ea5e9)',
+      primaryColor: '#2DB58F',
+      primaryForegroundColor: '#09090b',
+      backgroundHeaderColorStyle: 'backgroundImage: linear-gradient(to right, #006a4c, #007957)',
       headerBorderBottomStyle: '',
       colorFontOnHeaderStyle: 'color: white',
       colorPathOnHeader: 'text-text-primary-on-surface',
-      backgroundButtonDefaultColorStyle: 'backgroundColor: #1C64F2',
-      roundedBackgroundColorStyle: 'backgroundColor: rgb(245 248 255)',
+      backgroundButtonDefaultColorStyle: 'backgroundColor: #2DB58F',
+      roundedBackgroundColorStyle: 'backgroundColor: rgb(242 252 248)',
       chatBubbleColorStyle: '',
     })
   })
@@ -21,8 +22,9 @@ describe('createTheme', () => {
   it('treats an empty custom color as the default palette', () => {
     expect(createTheme('')).toMatchObject({
       chatColorTheme: '',
-      primaryColor: '#1C64F2',
-      backgroundHeaderColorStyle: 'backgroundImage: linear-gradient(to right, #2563eb, #0ea5e9)',
+      primaryColor: '#2DB58F',
+      primaryForegroundColor: '#09090b',
+      backgroundHeaderColorStyle: 'backgroundImage: linear-gradient(to right, #006a4c, #007957)',
       chatBubbleColorStyle: '',
     })
   })
@@ -34,6 +36,7 @@ describe('createTheme', () => {
     expect(firstTheme).toMatchObject({
       chatColorTheme: '#FF5733',
       primaryColor: '#FF5733',
+      primaryForegroundColor: '#09090b',
       backgroundHeaderColorStyle: 'backgroundColor: #FF5733',
       backgroundButtonDefaultColorStyle: 'backgroundColor: #FF5733; color: color: white;',
       roundedBackgroundColorStyle: 'backgroundColor: rgba(255,87,51,0.05)',

@@ -6,8 +6,8 @@
     body {
       font-family: 'Arial', sans-serif;
       line-height: 16pt;
-      color: #101828;
-      background-color: #e9ebf0;
+      color: #09090b;
+      background-color: #e4e4e7;
       margin: 0;
       padding: 0;
     }
@@ -41,7 +41,7 @@
     .description {
       font-size: 13px;
       line-height: 16px;
-      color: #676f83;
+      color: #65656f;
       margin-top: 12px;
     }
 
@@ -49,7 +49,7 @@
       padding: 16px 32px;
       text-align: center;
       border-radius: 16px;
-      background-color: #f2f4f7;
+      background-color: #f4f4f5;
       margin: 16px auto;
     }
 
@@ -61,7 +61,7 @@
 
     .tips {
       line-height: 16px;
-      color: #676f83;
+      color: #65656f;
       font-size: 13px;
     }
 
@@ -71,7 +71,7 @@
       font-style: normal;
       font-size: 14px;
       line-height: 20px;
-      color: #354052;
+      color: #3f3f46;
       margin-top: 12px;
       margin-bottom: 12px;
     }
@@ -80,7 +80,7 @@
     }
 
     .typography-title {
-      color: #101828;
+      color: #09090b;
       font-size: 14px;
       font-style: normal;
       font-weight: 600;
@@ -99,10 +99,10 @@
   <div class="container">
     <div class="header">
       <!-- Optional: Add a logo or a header image here -->
-      <img src="https://assets.dify.ai/images/logo.png" alt="Dify Logo" />
+      <img src="{{ config.CONSOLE_WEB_URL }}/logo/logo-email.png" alt="Tacit" />
     </div>
-    <p class="title">Dify.AI Account Deletion and Verification</p>
-    <p class="typography">We received a request to delete your Dify account. To ensure the security of your account and
+    <p class="title">Tacit Account Deletion and Verification</p>
+    <p class="typography">We received a request to delete your Tacit account. To ensure the security of your account and
       confirm this action, please use the verification code below:</p>
     <div class="code-content">
       <span class="code">{{code}}</span>

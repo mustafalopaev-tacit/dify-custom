@@ -135,14 +135,14 @@ describe.each([false, true])('Human input share form with IM gate %s', (enabled)
     render(<FormContent />)
 
     expect(screen.getByLabelText('common.loading')).toBeInTheDocument()
-    expect(document.title).toBe('common.loading - Dify')
+    expect(document.title).toBe('common.loading - Tacit')
     expect(screen.queryByRole('button', { name: 'Approve' })).not.toBeInTheDocument()
 
     await act(async () => resolve(formData))
 
     expect(await screen.findByRole('textbox', { name: 'summary' })).toHaveValue('initial summary')
     expect(mockGetForm).toHaveBeenCalledExactlyOnceWith('token-123')
-    expect(document.title).toBe('Review App - Dify')
+    expect(document.title).toBe('Review App - Tacit')
     expect(screen.queryByLabelText('common.loading')).not.toBeInTheDocument()
   })
 
@@ -206,7 +206,7 @@ describe.each([false, true])('Human input share form with IM gate %s', (enabled)
 
       expect(await screen.findByText(title)).toBeInTheDocument()
       if (subtitle) expect(screen.getByText(subtitle)).toBeInTheDocument()
-      expect(document.title).toBe(`${subtitle ?? title} - Dify`)
+      expect(document.title).toBe(`${subtitle ?? title} - Tacit`)
       expect(screen.queryByRole('button', { name: 'Approve' })).not.toBeInTheDocument()
       if (submissionID)
         expect(
@@ -248,7 +248,7 @@ describe.each([false, true])('Human input share form with IM gate %s', (enabled)
     expect(screen.getByText('share.humanInput.recorded')).toBeInTheDocument()
     expect(screen.getByText('share.humanInput.submissionID:{"id":"token-123"}')).toBeInTheDocument()
     expect(screen.queryByRole('textbox', { name: 'summary' })).not.toBeInTheDocument()
-    expect(document.title).toBe('share.humanInput.thanks - Dify')
+    expect(document.title).toBe('share.humanInput.thanks - Tacit')
   })
 
   it('preserves initialized defaults when upload completes without a text edit', async () => {
@@ -316,7 +316,7 @@ describe.each([false, true])('Human input share form with IM gate %s', (enabled)
     render(<FormContent />)
     await screen.findByRole('textbox', { name: 'summary' })
     expect(screen.queryByText('share.chat.poweredBy')).not.toBeInTheDocument()
-    expect(screen.queryByRole('img', { name: 'Dify' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('img', { name: 'Tacit' })).not.toBeInTheDocument()
   })
 
   it('renders the configured custom branding logo', async () => {
@@ -336,6 +336,6 @@ describe.each([false, true])('Human input share form with IM gate %s', (enabled)
       'https://example.com/custom-logo.png',
     )
     expect(screen.getByText('share.chat.poweredBy')).toBeInTheDocument()
-    expect(screen.queryByRole('img', { name: 'Dify' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('img', { name: 'Tacit' })).not.toBeInTheDocument()
   })
 })

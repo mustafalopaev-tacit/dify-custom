@@ -172,7 +172,7 @@ describe('AppDetailLayout', () => {
       )
 
       await waitFor(() => {
-        expect(document.title).toBe(`${pageTitle} · Demo App - Dify`)
+        expect(document.title).toBe(`${pageTitle} · Demo App - Tacit`)
       })
     })
 
@@ -184,7 +184,7 @@ describe('AppDetailLayout', () => {
       )
 
       await waitFor(() => {
-        expect(document.title).toBe('common.appMenus.promptEng · Demo App - Dify')
+        expect(document.title).toBe('common.appMenus.promptEng · Demo App - Tacit')
       })
 
       act(() => {
@@ -195,7 +195,7 @@ describe('AppDetailLayout', () => {
       })
 
       await waitFor(() => {
-        expect(document.title).toBe('common.appMenus.promptEng · Renamed App - Dify')
+        expect(document.title).toBe('common.appMenus.promptEng · Renamed App - Tacit')
       })
       expect(mockAppResponse).toHaveBeenCalled()
     })

@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} ページ",
   "sourceTypeLabel": "ソースタイプ",
   "sourcesDescription": "知識がどこから来たのか、その新鮮さはどれくらいか、最後の同期が成功したかどうか。",
-  "sourcesEmptyDescription": "Web サイト、ワークスペース、ドライブを接続すると、Dify が同期して最新の状態に保つため、検索が中断されることはありません。",
+  "sourcesEmptyDescription": "Web サイト、ワークスペース、ドライブを接続すると、Tacit が同期して最新の状態に保つため、検索が中断されることはありません。",
   "sourcesEmptyTitle": "ソースがまだ接続されていません",
   "sourcesErrorTitle": "ソースをロードできませんでした",
   "stoppingCrawl": "停止中…",

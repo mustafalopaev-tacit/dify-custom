@@ -313,16 +313,16 @@ it('closes compact navigation after changing the settings section', async () => 
 })
 
 it('preserves the host title in settings and updates it for route navigation', () => {
-  document.title = 'Workspace settings - Dify'
+  document.title = 'Workspace settings - Tacit'
   const view = renderPage()
-  expect(document.title).toBe('Workspace settings - Dify')
+  expect(document.title).toBe('Workspace settings - Tacit')
   view.rerender(<IntegrationsPage section="provider" syncDocumentTitle />)
   expect(document.title).toBe(
-    'navigation.settings.provider · navigation.mainNav.integrations - Dify',
+    'navigation.settings.provider · navigation.mainNav.integrations - Tacit',
   )
   view.rerender(<IntegrationsPage section="data-source" syncDocumentTitle />)
   expect(document.title).toBe(
-    'navigation.settings.dataSource · navigation.mainNav.integrations - Dify',
+    'navigation.settings.dataSource · navigation.mainNav.integrations - Tacit',
   )
 })
 

@@ -299,7 +299,7 @@ function SkillBuilderEmptyIcon() {
       </div>
       <span
         aria-hidden
-        className="relative i-custom-vender-agent-v2-building-blocks size-5 text-[#0033FF] drop-shadow-[0_0_4px_rgba(49,70,255,0.18)]"
+        className="relative i-custom-vender-agent-v2-building-blocks size-5 text-text-accent drop-shadow-[0_0_4px_rgba(45,181,143,0.25)]"
       />
     </div>
   )

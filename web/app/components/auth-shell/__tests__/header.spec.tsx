@@ -50,10 +50,10 @@ describe('Signin Header', () => {
     expect(screen.queryByRole('img')).not.toBeInTheDocument()
   })
 
-  it('keeps the default Dify logo accessible name', () => {
+  it('keeps the default Tacit logo accessible name', () => {
     render(<Header />)
 
-    expect(screen.getByRole('img', { name: 'Dify' })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'Tacit' })).toBeInTheDocument()
   })
 
   it('refreshes server content only after the selected language is ready', async () => {

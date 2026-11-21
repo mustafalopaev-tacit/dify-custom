@@ -92,9 +92,11 @@ afterEach(() => toast.dismiss())
 it('opens Zendesk from the paid sidebar and keeps contact support out of Help', async () => {
   const { screen } = await renderSupportMenu()
   const contact = screen.getByRole('button', { name: 'common.userProfile.contactSupport' })
-  const discord = screen.getByRole('menuitem', { name: 'common.userProfile.discord' })
   await expect.element(contact).toBeVisible()
-  await expect.element(discord).toHaveAttribute('href', 'https://discord.gg/5AEfbxcd9k')
+  // Tacit re-brand: the upstream Discord link is hidden (TACIT_BRANDING).
+  await expect
+    .element(screen.getByRole('menuitem', { name: 'common.userProfile.discord' }))
+    .not.toBeInTheDocument()
   await expect
     .element(screen.getByRole('menuitem', { name: 'common.userProfile.contactSupport' }))
     .not.toBeInTheDocument()
@@ -156,9 +158,10 @@ it('waits for the Cloud plan before revealing paid contact support', async () =>
   await expect
     .element(screen.getByRole('button', { name: 'common.userProfile.contactSupport' }))
     .not.toBeInTheDocument()
+  // Tacit re-brand: the upstream Discord link is hidden (TACIT_BRANDING).
   await expect
     .element(screen.getByRole('menuitem', { name: 'common.userProfile.discord' }))
-    .toBeVisible()
+    .not.toBeInTheDocument()
 
   seedFeatures(queryClient, { billing: { subscription: { plan: 'team' } } })
 

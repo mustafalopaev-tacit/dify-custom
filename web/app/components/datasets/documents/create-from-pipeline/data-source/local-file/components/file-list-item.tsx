@@ -21,7 +21,7 @@ type FileListItemProps = {
 
 const FileListItem = ({ fileItem, onPreview, onRemove }: FileListItemProps) => {
   const theme = useResolvedTheme()
-  const chartColor = useMemo(() => (theme === 'dark' ? '#5289ff' : '#296dff'), [theme])
+  const chartColor = useMemo(() => (theme === 'dark' ? '#93e8c9' : '#1f9a78'), [theme])
 
   const isUploading = fileItem.progress >= 0 && fileItem.progress < 100
   const isError = fileItem.progress === PROGRESS_ERROR

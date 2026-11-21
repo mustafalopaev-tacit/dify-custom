@@ -1,6 +1,6 @@
 {
   "appNotAccessible.description": "Hubungi administrator aplikasi jika Anda memerlukan bantuan.",
-  "appNotAccessible.documentTitle": "Aplikasi tidak dapat diakses · Dify",
+  "appNotAccessible.documentTitle": "Aplikasi tidak dapat diakses · Tacit",
   "appNotAccessible.ipAddress": "Alamat IP Anda adalah <ip>{{ip}}</ip>.",
   "appNotAccessible.title": "Aplikasi ini tidak ada atau tidak dapat diakses dari jaringan Anda.",
   "chat.chatFormTip": "Pengaturan obrolan tidak dapat dimodifikasi setelah obrolan dimulai.",

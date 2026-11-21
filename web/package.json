@@ -52,6 +52,7 @@
     "@daypicker/react": "catalog:",
     "@dify/openapi-content-mapper": "workspace:*",
     "@floating-ui/react": "catalog:",
+    "@fontsource-variable/geist": "catalog:",
     "@formatjs/intl-localematcher": "catalog:",
     "@heroicons/react": "catalog:",
     "@lexical/code-core": "catalog:",

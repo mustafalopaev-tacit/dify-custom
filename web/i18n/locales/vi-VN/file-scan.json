@@ -7,7 +7,7 @@
   "dialog.endpoint": "Điểm cuối (không bắt buộc)",
   "dialog.endpointDescription": "Chỉ dùng cho phiên bản Cloudmersive riêng. Phải là URL HTTPS.",
   "dialog.endpointUrl": "URL điểm cuối",
-  "dialog.endpointUrlDescription": "Dify gửi từng tệp đến địa chỉ này và chờ kết quả đánh giá. Xem tài liệu trợ giúp để biết định dạng yêu cầu.",
+  "dialog.endpointUrlDescription": "Tacit gửi từng tệp đến địa chỉ này và chờ kết quả đánh giá. Xem tài liệu trợ giúp để biết định dạng yêu cầu.",
   "dialog.endpointUrlInvalid": "Nhập địa chỉ hợp lệ bắt đầu bằng http:// hoặc https://.",
   "dialog.getApiKey": "Lấy API key từ {{vendor}}",
   "dialog.name": "Tên",

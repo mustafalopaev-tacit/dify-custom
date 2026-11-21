@@ -7,7 +7,7 @@
   "dialog.endpoint": "ปลายทาง (ไม่บังคับ)",
   "dialog.endpointDescription": "ใช้เฉพาะกับอินสแตนซ์ Cloudmersive ส่วนตัวเท่านั้น ต้องเป็น URL แบบ HTTPS",
   "dialog.endpointUrl": "URL ปลายทาง",
-  "dialog.endpointUrlDescription": "Dify จะส่งแต่ละไฟล์ไปยังที่อยู่นี้และรอผลการตรวจสอบ ดูรูปแบบคำขอได้ในเอกสารช่วยเหลือ",
+  "dialog.endpointUrlDescription": "Tacit จะส่งแต่ละไฟล์ไปยังที่อยู่นี้และรอผลการตรวจสอบ ดูรูปแบบคำขอได้ในเอกสารช่วยเหลือ",
   "dialog.endpointUrlInvalid": "กรอกที่อยู่ที่ถูกต้องซึ่งขึ้นต้นด้วย http:// หรือ https://",
   "dialog.getApiKey": "รับ API key จาก {{vendor}}",
   "dialog.name": "ชื่อ",

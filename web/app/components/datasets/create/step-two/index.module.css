@@ -61,7 +61,7 @@
 }
 
 .indexItem .warningTip .click {
-  color: #155eef;
+  color: var(--color-text-accent);
   cursor: pointer;
 }
 
@@ -158,12 +158,12 @@
 }
 
 .radioItem:hover .radio {
-  border-color: #155eef;
+  border-color: var(--color-state-accent-solid);
 }
 
 .radioItem.active {
   border-width: 1.5px;
-  border-color: #528bff;
+  border-color: var(--color-components-option-card-option-selected-border);
   box-shadow:
     0px 1px 3px rgba(16, 24, 40, 0.1),
     0px 1px 2px rgba(16, 24, 40, 0.06);
@@ -173,12 +173,12 @@
   top: 25.5px;
   right: 19.5px;
   border-width: 5px;
-  border-color: #155eef;
+  border-color: var(--color-state-accent-solid);
 }
 
 .radioItem.active:hover {
   border-width: 1.5px;
-  border-color: #528bff;
+  border-color: var(--color-components-option-card-option-selected-border);
   box-shadow:
     0px 1px 3px rgba(16, 24, 40, 0.1),
     0px 1px 2px rgba(16, 24, 40, 0.06);

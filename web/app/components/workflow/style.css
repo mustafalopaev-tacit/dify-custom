@@ -19,14 +19,14 @@
 }
 
 #workflow-container .react-flow__nodesselection-rect {
-  border: 1px solid #528bff;
-  background: rgba(21, 94, 239, 0.05);
+  border: 1px solid var(--color-workflow-link-line-active);
+  background: var(--color-state-accent-active);
   cursor: move;
 }
 
 #workflow-container .react-flow__selection {
-  border: 1px solid #528bff;
-  background: rgba(21, 94, 239, 0.05);
+  border: 1px solid var(--color-workflow-link-line-active);
+  background: var(--color-state-accent-active);
 }
 
 #workflow-container .react-flow__node-custom-note {

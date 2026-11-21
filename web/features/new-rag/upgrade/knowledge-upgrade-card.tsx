@@ -211,7 +211,7 @@ export function KnowledgeUpgradeCard({
       className={cn(
         "relative isolate flex h-41.5 flex-col overflow-hidden rounded-xl bg-components-card-bg shadow-xs after:pointer-events-none after:absolute after:inset-0 after:z-1 after:rounded-xl after:content-[''] has-[>a:focus-visible]:after:inset-ring-2 has-[>a:focus-visible]:after:inset-ring-state-accent-solid",
         highlighted
-          ? 'border-2 border-state-accent-solid shadow-[0_0_12px_4px_rgba(21,94,239,0.18)]'
+          ? 'border-2 border-state-accent-solid shadow-[0_0_12px_4px_rgba(45,181,143,0.25)]'
           : 'border-[0.5px] border-components-card-border',
       )}
     >

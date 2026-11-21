@@ -165,3 +165,6 @@
     user-select: none;
   }
 }
+
+/* Tacit re-brand: palette, font and token overrides. Keep last. See BRANDING.md. */
+@import '../../themes/tacit.css';

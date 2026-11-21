@@ -26,6 +26,7 @@ import { I18nServerProvider } from './components/provider/i18n-server'
 import { TanStackQueryProvider } from './query-provider'
 import { QueryStateProvider } from './query-state-provider'
 import '@/service/console/server'
+import '@fontsource-variable/geist'
 import './styles/globals.css'
 import './styles/markdown.css'
 
@@ -36,7 +37,9 @@ export const viewport: Viewport = {
 
 export async function generateMetadata(): Promise<Metadata> {
   if (getAppAccessErrorDocument(await headers()))
-    return { icons: { icon: `${basePath}/favicon.ico` } }
+    return {
+      icons: { icon: `${basePath}/favicon.ico`, apple: `${basePath}/apple-touch-icon.png` },
+    }
   const systemFeatures = await getOptionalSystemFeatures()
   const branding = systemFeatures?.branding
   const applicationTitle = getApplicationTitle(branding)
@@ -49,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     icons: brandedFavicon
       ? { icon: brandedFavicon, apple: brandedFavicon }
-      : { icon: `${basePath}/favicon.ico` },
+      : { icon: `${basePath}/favicon.ico`, apple: `${basePath}/apple-touch-icon.png` },
   }
 }
 

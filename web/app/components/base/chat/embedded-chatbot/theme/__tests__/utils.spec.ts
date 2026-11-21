@@ -1,4 +1,4 @@
-import { CssTransform, hexToRGBA } from '../utils'
+import { CssTransform, hexToRGBA, readableTextColor } from '../utils'
 
 describe('theme value conversions', () => {
   it.each([
@@ -18,5 +18,18 @@ describe('theme value conversions', () => {
 
   it('has no declarations for an empty style', () => {
     expect(CssTransform('')).toEqual({})
+  })
+})
+
+describe('readableTextColor', () => {
+  it('uses dark ink on the Tacit mint and other light fills', () => {
+    expect(readableTextColor('#2DB58F')).toBe('#09090b')
+    expect(readableTextColor('#93e8c9')).toBe('#09090b')
+  })
+
+  it('uses white on dark fills and when the value is not a 6-digit hex', () => {
+    expect(readableTextColor('#123456')).toBe('#ffffff')
+    expect(readableTextColor('#007957')).toBe('#ffffff')
+    expect(readableTextColor('red')).toBe('#ffffff')
   })
 })
