@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} 頁",
   "sourceTypeLabel": "來源類型",
   "sourcesDescription": "知識從哪裡來，新鮮程度如何，上次同步是否成功。",
-  "sourcesEmptyDescription": "連接網站、工作空間或雲端硬碟——Dify 會持續保持同步和更新，確保檢索始終穩定。",
+  "sourcesEmptyDescription": "連接網站、工作空間或雲端硬碟——Tacit 會持續保持同步和更新，確保檢索始終穩定。",
   "sourcesEmptyTitle": "尚未連接來源",
   "sourcesErrorTitle": "來源無法載入",
   "stoppingCrawl": "正在停止…",

@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} strani",
   "sourceTypeLabel": "Vrsta vira",
   "sourcesDescription": "Od kod prihaja znanje, kako sveže je in ali je zadnja sinhronizacija uspela.",
-  "sourcesEmptyDescription": "Povežite spletno mesto, delovni prostor ali pogon — Dify ga ohranja sinhroniziranega in posodobljenega, da pridobivanje podatkov nikoli ni prekinjeno.",
+  "sourcesEmptyDescription": "Povežite spletno mesto, delovni prostor ali pogon — Tacit ga ohranja sinhroniziranega in posodobljenega, da pridobivanje podatkov nikoli ni prekinjeno.",
   "sourcesEmptyTitle": "Ni še povezanih virov",
   "sourcesErrorTitle": "Virov ni bilo mogoče naložiti",
   "stoppingCrawl": "Ustavljanje…",

@@ -20,7 +20,7 @@
   "members.invalidRole": "Il ruolo selezionato non è più disponibile. Seleziona un altro ruolo.",
   "members.invitationLink": "Link di Invito",
   "members.invitationSent": "Invito inviato",
-  "members.invitationSentTip": "Invito inviato, e possono accedere a Dify per accedere ai dati del tuo team.",
+  "members.invitationSentTip": "Invito inviato, e possono accedere a Tacit per accedere ai dati del tuo team.",
   "members.invite": "Aggiungi",
   "members.inviteFailed": "Impossibile inviare gli inviti. Riprova.",
   "members.inviteLimitExceeded": "Non ci sono posti sufficienti per tutti i destinatari.",

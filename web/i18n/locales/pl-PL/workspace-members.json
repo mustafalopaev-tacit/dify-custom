@@ -20,7 +20,7 @@
   "members.invalidRole": "Wybrana rola nie jest już dostępna. Wybierz inną rolę.",
   "members.invitationLink": "Link zaproszenia",
   "members.invitationSent": "Zaproszenie wysłane",
-  "members.invitationSentTip": "Zaproszenie zostało wysłane, a oni mogą zalogować się do Dify, aby uzyskać dostęp do danych Twojego zespołu.",
+  "members.invitationSentTip": "Zaproszenie zostało wysłane, a oni mogą zalogować się do Tacit, aby uzyskać dostęp do danych Twojego zespołu.",
   "members.invite": "Dodaj",
   "members.inviteFailed": "Nie udało się wysłać zaproszeń. Spróbuj ponownie.",
   "members.inviteLimitExceeded": "Brak wystarczającej liczby miejsc dla wszystkich odbiorców.",

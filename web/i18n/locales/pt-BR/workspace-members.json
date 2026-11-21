@@ -20,7 +20,7 @@
   "members.invalidRole": "A função selecionada não está mais disponível. Selecione outra função.",
   "members.invitationLink": "Link do Convite",
   "members.invitationSent": "Convite enviado",
-  "members.invitationSentTip": "Convite enviado e eles podem fazer login no Dify para acessar os dados da sua equipe.",
+  "members.invitationSentTip": "Convite enviado e eles podem fazer login no Tacit para acessar os dados da sua equipe.",
   "members.invite": "Adicionar",
   "members.inviteFailed": "Não foi possível enviar os convites. Tente novamente.",
   "members.inviteLimitExceeded": "Não há vagas suficientes para todos os destinatários.",

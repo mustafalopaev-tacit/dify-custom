@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} Seiten",
   "sourceTypeLabel": "Quelltyp",
   "sourcesDescription": "Woher das Wissen kommt, wie aktuell es ist und ob die letzte Synchronisierung erfolgreich war.",
-  "sourcesEmptyDescription": "Verbinde eine Website, einen Arbeitsbereich oder ein Laufwerk – Dify hält die Inhalte synchron und aktuell, damit der Abruf jederzeit funktioniert.",
+  "sourcesEmptyDescription": "Verbinde eine Website, einen Arbeitsbereich oder ein Laufwerk – Tacit hält die Inhalte synchron und aktuell, damit der Abruf jederzeit funktioniert.",
   "sourcesEmptyTitle": "Noch keine Quellen verbunden",
   "sourcesErrorTitle": "Quellen konnten nicht geladen werden",
   "stoppingCrawl": "Wird gestoppt…",

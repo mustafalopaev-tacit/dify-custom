@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}}페이지",
   "sourceTypeLabel": "소스 유형",
   "sourcesDescription": "지식의 출처, 정보의 최신성, 마지막 동기화 성공 여부.",
-  "sourcesEmptyDescription": "웹사이트, 워크스페이스 또는 드라이브를 연결하면 Dify가 동기화하고 최신 상태로 유지하여 검색이 중단되지 않도록 합니다.",
+  "sourcesEmptyDescription": "웹사이트, 워크스페이스 또는 드라이브를 연결하면 Tacit가 동기화하고 최신 상태로 유지하여 검색이 중단되지 않도록 합니다.",
   "sourcesEmptyTitle": "아직 연결된 소스가 없습니다.",
   "sourcesErrorTitle": "소스를 로드할 수 없습니다.",
   "stoppingCrawl": "중지 중…",

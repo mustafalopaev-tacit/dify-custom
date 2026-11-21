@@ -20,7 +20,7 @@
   "members.invalidRole": "Peran yang dipilih sudah tidak tersedia. Pilih peran lain.",
   "members.invitationLink": "Tautan Undangan",
   "members.invitationSent": "Undangan terkirim",
-  "members.invitationSentTip": "Undangan terkirim, dan mereka dapat masuk ke Dify untuk mengakses data tim Anda.",
+  "members.invitationSentTip": "Undangan terkirim, dan mereka dapat masuk ke Tacit untuk mengakses data tim Anda.",
   "members.invite": "Tambah",
   "members.inviteFailed": "Undangan tidak dapat dikirim. Coba lagi.",
   "members.inviteLimitExceeded": "Slot yang tersedia tidak cukup untuk semua penerima.",

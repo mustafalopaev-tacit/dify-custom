@@ -20,7 +20,7 @@
   "members.invalidRole": "De geselecteerde rol is niet meer beschikbaar. Selecteer een andere rol.",
   "members.invitationLink": "Invitation Link",
   "members.invitationSent": "Invitation sent",
-  "members.invitationSentTip": "Invitation sent, and they can sign in to Dify to access your team data.",
+  "members.invitationSentTip": "Invitation sent, and they can sign in to Tacit to access your team data.",
   "members.invite": "Add",
   "members.inviteFailed": "De uitnodigingen konden niet worden verzonden. Probeer het opnieuw.",
   "members.inviteLimitExceeded": "Er zijn niet genoeg plaatsen beschikbaar voor alle ontvangers.",

@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} stron",
   "sourceTypeLabel": "Typ źródła",
   "sourcesDescription": "Skąd pochodzi wiedza, jak bardzo jest świeża i czy ostatnia synchronizacja się powiodła.",
-  "sourcesEmptyDescription": "Połącz witrynę, obszar roboczy lub dysk — Dify zadba o synchronizację i aktualność, dzięki czemu wyszukiwanie nigdy nie zostanie przerwane.",
+  "sourcesEmptyDescription": "Połącz witrynę, obszar roboczy lub dysk — Tacit zadba o synchronizację i aktualność, dzięki czemu wyszukiwanie nigdy nie zostanie przerwane.",
   "sourcesEmptyTitle": "Żadne źródła nie są jeszcze podłączone",
   "sourcesErrorTitle": "Nie udało się załadować źródeł",
   "stoppingCrawl": "Zatrzymywanie…",

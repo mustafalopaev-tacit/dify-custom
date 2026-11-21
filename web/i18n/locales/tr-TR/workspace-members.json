@@ -20,7 +20,7 @@
   "members.invalidRole": "Seçilen rol artık kullanılamıyor. Başka bir rol seçin.",
   "members.invitationLink": "Davet Linki",
   "members.invitationSent": "Davet gönderildi",
-  "members.invitationSentTip": "Davet gönderildi, Dify'ye giriş yaparak takım verilerinize erişebilirler.",
+  "members.invitationSentTip": "Davet gönderildi, Tacit'ye giriş yaparak takım verilerinize erişebilirler.",
   "members.invite": "Ekle",
   "members.inviteFailed": "Davetler gönderilemedi. Tekrar deneyin.",
   "members.inviteLimitExceeded": "Tüm alıcılar için yeterli koltuk yok.",

@@ -57,7 +57,7 @@
   "externalAPIForm.encrypted.end": "texnologiyası ilə şifrələnib saxlanılacaq.",
   "externalAPIForm.encrypted.front": "API tokeniniz",
   "externalAPIForm.save": "Yadda saxla",
-  "externalAPIPanelDescription": "Xarici bilik API-si Dify xaricindəki bilik bazasına qoşulmaq və həmin bilik bazasından biliklər əldə etmək üçün istifadə edilir.",
+  "externalAPIPanelDescription": "Xarici bilik API-si Tacit xaricindəki bilik bazasına qoşulmaq və həmin bilik bazasından biliklər əldə etmək üçün istifadə edilir.",
   "externalAPIPanelDocumentation": "Xarici bilik API-si yaratmağı öyrən",
   "externalAPIPanelTitle": "Xarici bilik API-si",
   "externalKnowledgeBase": "Xarici bilik bazası",

@@ -49,7 +49,7 @@
   "inputFieldPanel.uniqueInputs.title": "Hər giriş nöqtəsi üçün xüsusi daxiletmələr",
   "inputFieldPanel.uniqueInputs.tooltip": "Xüsusi daxiletmələr yalnız seçilmiş məlumat mənbəyi və ondan sonrakı düyünlər üçün əlçatandır. İstifadəçilər digər məlumat mənbələrini seçərkən onları doldurmalı olmayacaqlar. Birinci addımda (məlumat mənbəyi) yalnız məlumat mənbəyi dəyişənlərinin istinad etdiyi daxiletmə sahələri görünəcək. Bütün digər sahələr ikinci addımda (sənədlərin emalı) göstəriləcək.",
   "knowledgeDescription": "Bilik bazasının təsviri",
-  "knowledgeDescriptionPlaceholder": "Bu bilik bazasının məzmununu təsvir edin. Ətraflı təsvir süni intellektə məlumat dəstinin məzmununa daha dəqiq çıxış imkanı verir. Boş saxlanılarsa, Dify standart uyğunluq strategiyasından istifadə edəcək. (İstəyə bağlı)",
+  "knowledgeDescriptionPlaceholder": "Bu bilik bazasının məzmununu təsvir edin. Ətraflı təsvir süni intellektə məlumat dəstinin məzmununa daha dəqiq çıxış imkanı verir. Boş saxlanılarsa, Tacit standart uyğunluq strategiyasından istifadə edəcək. (İstəyə bağlı)",
   "knowledgeNameAndIconPlaceholder": "Bilik bazasının adını daxil edin",
   "onlineDocument.pageSelectorTitle": "{{name}} səhifələri",
   "onlineDrive.breadcrumbs.allBuckets": "Bütün bulud saxlama konteynerləri",

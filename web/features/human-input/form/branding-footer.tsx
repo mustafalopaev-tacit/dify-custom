@@ -31,7 +31,7 @@ const BrandingFooter = ({
         {replaceWebappLogo ? (
           <img src={replaceWebappLogo} alt="logo" className="block h-5 w-auto" />
         ) : (
-          <DifyLogo alt="Dify" size="small" />
+          <DifyLogo alt="Tacit" size="small" />
         )}
       </div>
     </div>

@@ -20,7 +20,7 @@
   "members.invalidRole": "Izbrana vloga ni več na voljo. Izberite drugo vlogo.",
   "members.invitationLink": "Povezava za povabilo",
   "members.invitationSent": "Povabilo poslano",
-  "members.invitationSentTip": "Povabilo poslano, in po prijavi v Dify bodo imeli dostop do vaših podatkov ekipe.",
+  "members.invitationSentTip": "Povabilo poslano, in po prijavi v Tacit bodo imeli dostop do vaših podatkov ekipe.",
   "members.invite": "Dodaj",
   "members.inviteFailed": "Povabil ni bilo mogoče poslati. Poskusite znova.",
   "members.inviteLimitExceeded": "Za vse prejemnike ni na voljo dovolj mest.",

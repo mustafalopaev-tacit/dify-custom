@@ -24,7 +24,7 @@ const Header = () => {
           alt={systemFeatures.branding.application_title || ''}
         />
       ) : (
-        <DifyLogo alt="Dify" size="large" />
+        <DifyLogo alt="Tacit" size="large" />
       )}
       <div className="flex min-w-0 items-center gap-1">
         <LocaleMenu

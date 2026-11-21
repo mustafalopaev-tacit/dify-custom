@@ -9,7 +9,7 @@ export default function Header() {
     <div className="min-h-16 pe-11">
       <DialogTitle>
         <span className="flex items-center gap-2 text-2xl leading-[37px] font-normal">
-          <DifyLogo alt="Dify" className="h-[27px] w-15" />
+          <DifyLogo alt="Tacit" className="h-[27px] w-15" />
           <span>Cloud</span>
         </span>
       </DialogTitle>

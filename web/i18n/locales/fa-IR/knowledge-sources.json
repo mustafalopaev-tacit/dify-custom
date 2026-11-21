@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} صفحه",
   "sourceTypeLabel": "نوع منبع",
   "sourcesDescription": "دانش از کجا می آید، چقدر تازه است و آیا آخرین همگام سازی موفق بوده است یا خیر.",
-  "sourcesEmptyDescription": "یک وب‌سایت، فضای کاری یا درایو را متصل کنید؛ Dify آن را همگام و به‌روز نگه می‌دارد تا بازیابی هرگز مختل نشود.",
+  "sourcesEmptyDescription": "یک وب‌سایت، فضای کاری یا درایو را متصل کنید؛ Tacit آن را همگام و به‌روز نگه می‌دارد تا بازیابی هرگز مختل نشود.",
   "sourcesEmptyTitle": "هنوز منبعی متصل نشده است",
   "sourcesErrorTitle": "منابع بارگیری نشدند",
   "stoppingCrawl": "در حال توقف…",

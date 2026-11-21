@@ -20,7 +20,7 @@
   "members.invalidRole": "Rolul selectat nu mai este disponibil. Selectați alt rol.",
   "members.invitationLink": "Link de invitație",
   "members.invitationSent": "Invitație trimisă",
-  "members.invitationSentTip": "Invitația a fost trimisă și pot să se autentifice în Dify pentru a accesa datele echipei dvs.",
+  "members.invitationSentTip": "Invitația a fost trimisă și pot să se autentifice în Tacit pentru a accesa datele echipei dvs.",
   "members.invite": "Adaugă",
   "members.inviteFailed": "Invitațiile nu au putut fi trimise. Încercați din nou.",
   "members.inviteLimitExceeded": "Nu sunt suficiente locuri disponibile pentru toți destinatarii.",

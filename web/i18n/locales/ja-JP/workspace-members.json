@@ -20,7 +20,7 @@
   "members.invalidRole": "このロールは利用できなくなりました。別のロールを選択してください。",
   "members.invitationLink": "招待リンク",
   "members.invitationSent": "招待が送信されました",
-  "members.invitationSentTip": "招待が送信され、彼らは Dify にサインインしてあなたのチームデータにアクセスできます。",
+  "members.invitationSentTip": "招待が送信され、彼らは Tacit にサインインしてあなたのチームデータにアクセスできます。",
   "members.invite": "招待",
   "members.inviteFailed": "招待を送信できませんでした。もう一度お試しください。",
   "members.inviteLimitExceeded": "メンバー枠が不足しているため、これらの招待を送信できません。",

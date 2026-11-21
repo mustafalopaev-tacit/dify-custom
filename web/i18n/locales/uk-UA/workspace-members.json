@@ -20,7 +20,7 @@
   "members.invalidRole": "Вибрана роль більше недоступна. Виберіть іншу роль.",
   "members.invitationLink": "Посилання на запрошення",
   "members.invitationSent": "Запрошення надіслано",
-  "members.invitationSentTip": "Запрошення надіслано, і вони можуть увійти в Dify, щоб отримати доступ до даних вашої команди.",
+  "members.invitationSentTip": "Запрошення надіслано, і вони можуть увійти в Tacit, щоб отримати доступ до даних вашої команди.",
   "members.invite": "Додати",
   "members.inviteFailed": "Не вдалося надіслати запрошення. Спробуйте ще раз.",
   "members.inviteLimitExceeded": "Для всіх одержувачів недостатньо вільних місць.",

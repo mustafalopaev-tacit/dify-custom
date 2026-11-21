@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} 页",
   "sourceTypeLabel": "数据源类型",
   "sourcesDescription": "查看数据源、内容时效性及最近一次同步状态。",
-  "sourcesEmptyDescription": "连接网站、工作区或云盘，Dify 会持续同步和更新内容，让检索始终可用。",
+  "sourcesEmptyDescription": "连接网站、工作区或云盘，Tacit 会持续同步和更新内容，让检索始终可用。",
   "sourcesEmptyTitle": "尚未连接数据源",
   "sourcesErrorTitle": "数据源加载失败",
   "stoppingCrawl": "正在停止…",

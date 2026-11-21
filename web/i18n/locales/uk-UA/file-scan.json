@@ -7,7 +7,7 @@
   "dialog.endpoint": "Кінцева точка (необов'язково)",
   "dialog.endpointDescription": "Лише для приватного екземпляра Cloudmersive. Має бути URL-адресою HTTPS.",
   "dialog.endpointUrl": "URL кінцевої точки",
-  "dialog.endpointUrlDescription": "Dify надсилає кожен файл на цю адресу й очікує вердикт. Формат запиту описано в довідковій документації.",
+  "dialog.endpointUrlDescription": "Tacit надсилає кожен файл на цю адресу й очікує вердикт. Формат запиту описано в довідковій документації.",
   "dialog.endpointUrlInvalid": "Введіть дійсну адресу, що починається з http:// або https://.",
   "dialog.getApiKey": "Отримати API-ключ у {{vendor}}",
   "dialog.name": "Назва",

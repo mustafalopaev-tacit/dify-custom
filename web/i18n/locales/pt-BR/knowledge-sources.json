@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} páginas",
   "sourceTypeLabel": "Tipo de fonte",
   "sourcesDescription": "De onde vem o conhecimento, quão recente ele é e se a última sincronização foi bem-sucedida.",
-  "sourcesEmptyDescription": "Conecte um site, espaço de trabalho ou drive — o Dify mantém tudo sincronizado e atualizado para que a recuperação nunca seja interrompida.",
+  "sourcesEmptyDescription": "Conecte um site, espaço de trabalho ou drive — o Tacit mantém tudo sincronizado e atualizado para que a recuperação nunca seja interrompida.",
   "sourcesEmptyTitle": "Nenhuma fonte conectada ainda",
   "sourcesErrorTitle": "Não foi possível carregar as fontes",
   "stoppingCrawl": "Parando…",

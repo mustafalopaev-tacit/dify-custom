@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} पृष्ठ",
   "sourceTypeLabel": "स्रोत प्रकार",
   "sourcesDescription": "ज्ञान कहां से आता है, यह कितना ताज़ा है, और क्या अंतिम सिंक सफल हुआ।",
-  "sourcesEmptyDescription": "वेबसाइट, वर्कस्पेस या ड्राइव कनेक्ट करें — Dify इसे सिंक और अपडेट रखता है, ताकि पुनर्प्राप्ति कभी बाधित न हो।",
+  "sourcesEmptyDescription": "वेबसाइट, वर्कस्पेस या ड्राइव कनेक्ट करें — Tacit इसे सिंक और अपडेट रखता है, ताकि पुनर्प्राप्ति कभी बाधित न हो।",
   "sourcesEmptyTitle": "अभी तक कोई स्रोत नहीं जुड़ा है",
   "sourcesErrorTitle": "स्रोत लोड नहीं हो सके",
   "stoppingCrawl": "रोका जा रहा है…",

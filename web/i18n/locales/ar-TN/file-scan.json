@@ -7,7 +7,7 @@
   "dialog.endpoint": "نقطة النهاية (اختياري)",
   "dialog.endpointDescription": "فقط لمثيل Cloudmersive خاص. يجب أن يكون عنوان URL بصيغة HTTPS.",
   "dialog.endpointUrl": "عنوان URL لنقطة النهاية",
-  "dialog.endpointUrlDescription": "يرسل Dify كل ملف إلى هذا العنوان وينتظر نتيجة الفحص. راجع وثائق المساعدة لمعرفة صيغة الطلب.",
+  "dialog.endpointUrlDescription": "يرسل Tacit كل ملف إلى هذا العنوان وينتظر نتيجة الفحص. راجع وثائق المساعدة لمعرفة صيغة الطلب.",
   "dialog.endpointUrlInvalid": "أدخل عنوانًا صالحًا يبدأ بـ http:// أو https://.",
   "dialog.getApiKey": "احصل على مفتاح API من {{vendor}}",
   "dialog.name": "الاسم",

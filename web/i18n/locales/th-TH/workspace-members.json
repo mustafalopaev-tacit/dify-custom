@@ -20,7 +20,7 @@
   "members.invalidRole": "บทบาทที่เลือกไม่พร้อมใช้งานแล้ว โปรดเลือกบทบาทอื่น",
   "members.invitationLink": "ลิงค์คําเชิญ",
   "members.invitationSent": "ส่งคําเชิญแล้ว",
-  "members.invitationSentTip": "ส่งคําเชิญแล้ว และพวกเขาสามารถลงชื่อเข้าใช้ Dify เพื่อเข้าถึงข้อมูลทีมของคุณได้",
+  "members.invitationSentTip": "ส่งคําเชิญแล้ว และพวกเขาสามารถลงชื่อเข้าใช้ Tacit เพื่อเข้าถึงข้อมูลทีมของคุณได้",
   "members.invite": "เพิ่ม",
   "members.inviteFailed": "ไม่สามารถส่งคำเชิญได้ โปรดลองอีกครั้ง",
   "members.inviteLimitExceeded": "มีที่นั่งไม่เพียงพอสำหรับผู้รับทั้งหมด",

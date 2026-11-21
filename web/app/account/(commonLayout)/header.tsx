@@ -14,7 +14,7 @@ const Header = () => {
   const logoLabel =
     systemFeatures.branding.enabled && systemFeatures.branding.application_title
       ? systemFeatures.branding.application_title
-      : 'Dify'
+      : 'Tacit'
 
   return (
     <div className="flex flex-1 items-center justify-between px-4">

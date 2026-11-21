@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} pagini",
   "sourceTypeLabel": "Tip sursă",
   "sourcesDescription": "De unde provin cunoștințele, cât de proaspete sunt și dacă ultima sincronizare a reușit.",
-  "sourcesEmptyDescription": "Conectează un site, un spațiu de lucru sau o unitate — Dify îl menține sincronizat și actualizat, astfel încât regăsirea să nu fie întreruptă niciodată.",
+  "sourcesEmptyDescription": "Conectează un site, un spațiu de lucru sau o unitate — Tacit îl menține sincronizat și actualizat, astfel încât regăsirea să nu fie întreruptă niciodată.",
   "sourcesEmptyTitle": "Nicio sursă conectată încă",
   "sourcesErrorTitle": "Sursele nu s-au putut încărca",
   "stoppingCrawl": "Se oprește…",

@@ -61,7 +61,7 @@ function PageContent({ clientIp, embedded }: AppNotAccessibleProps) {
     >
       <div className="flex min-h-full min-w-0 flex-col rounded-lg border border-effects-highlight bg-background-default-subtle">
         <header className="flex shrink-0 items-center justify-between gap-2 ps-6 pe-3 pt-4 pb-3">
-          <DifyLogo alt="Dify" size="large" className="w-15.75 shrink-0" />
+          <DifyLogo alt="Tacit" size="large" className="w-15.75 shrink-0" />
           <div className="flex min-w-0 items-center gap-1">
             <LocaleMenu
               locale={i18n.language as Locale}

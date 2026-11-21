@@ -63,7 +63,7 @@
   "sourceSyncProgress": "{{completed}} / {{total}} صفحة",
   "sourceTypeLabel": "نوع المصدر",
   "sourcesDescription": "من أين تأتي المعرفة، ومدى حداثتها، وما إذا كانت المزامنة الأخيرة قد نجحت.",
-  "sourcesEmptyDescription": "اربط موقعًا إلكترونيًا أو مساحة عمل أو محرك أقراص — يحافظ Dify على مزامنته وتحديثه، حتى لا يتعطل الاسترجاع أبدًا.",
+  "sourcesEmptyDescription": "اربط موقعًا إلكترونيًا أو مساحة عمل أو محرك أقراص — يحافظ Tacit على مزامنته وتحديثه، حتى لا يتعطل الاسترجاع أبدًا.",
   "sourcesEmptyTitle": "لا توجد مصادر متصلة بعد",
   "sourcesErrorTitle": "تعذر تحميل المصادر",
   "stoppingCrawl": "جارٍ الإيقاف…",

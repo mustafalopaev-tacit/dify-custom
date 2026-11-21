@@ -14,6 +14,7 @@ import {
 import dayjs from 'dayjs'
 import { useTranslation } from 'react-i18next'
 import { DifyLogo } from '@/app/components/base/logo/dify-logo'
+import { TACIT_BRANDING } from '@/config/tacit-branding'
 import Link from '@/next/link'
 
 type AccountAboutDialogProps = {
@@ -43,15 +44,17 @@ export default function AccountAboutDialog({
           <DialogHeaderCloseButton aria-label={t(($) => $['operation.close'], { ns: 'common' })} />
         </DialogHeader>
         <DialogBody className="flex flex-col items-center gap-4">
-          <DifyLogo alt="Dify" size="large" className="mx-auto" />
+          <DifyLogo alt="Tacit" size="large" className="mx-auto" />
 
           <div className="text-center system-xs-regular text-text-tertiary">
             Version {langGeniusVersionInfo.current_version}
           </div>
           <div className="flex flex-col items-center gap-2 text-center system-xs-regular text-text-secondary">
-            <div>©{dayjs().year()} LangGenius, Inc., Contributors.</div>
+            <div>
+              ©{dayjs().year()} {TACIT_BRANDING.copyrightHolder}
+            </div>
             <div className="text-text-accent">
-              {isNonCloudEdition && (
+              {isNonCloudEdition && TACIT_BRANDING.showCommunityLinks && (
                 <Link
                   href="https://github.com/langgenius/dify/blob/main/LICENSE"
                   target="_blank"
@@ -97,14 +100,16 @@ export default function AccountAboutDialog({
                   version: langGeniusVersionInfo.latest_version,
                 })}
           </div>
-          <Link
-            href="https://github.com/langgenius/dify/releases"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={buttonVariants({ size: 'small' })}
-          >
-            {t(($) => $['about.changeLog'], { ns: 'common' })}
-          </Link>
+          {TACIT_BRANDING.showCommunityLinks && (
+            <Link
+              href="https://github.com/langgenius/dify/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ size: 'small' })}
+            >
+              {t(($) => $['about.changeLog'], { ns: 'common' })}
+            </Link>
+          )}
           {!isLatest && deploymentEdition === 'CLOUD' && (
             <Link
               href={langGeniusVersionInfo.release_notes}

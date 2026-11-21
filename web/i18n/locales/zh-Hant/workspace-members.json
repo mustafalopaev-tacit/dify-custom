@@ -20,7 +20,7 @@
   "members.invalidRole": "該角色已不可用，請重新選擇。",
   "members.invitationLink": "邀請連結",
   "members.invitationSent": "邀請已傳送",
-  "members.invitationSentTip": "邀請已傳送，對方登入 Dify 後即可訪問你的團隊資料。",
+  "members.invitationSentTip": "邀請已傳送，對方登入 Tacit 後即可訪問你的團隊資料。",
   "members.invite": "新增",
   "members.inviteFailed": "邀請傳送失敗，請重試。",
   "members.inviteLimitExceeded": "成員名額不足，無法傳送這些邀請。",

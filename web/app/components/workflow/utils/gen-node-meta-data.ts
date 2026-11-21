@@ -22,7 +22,7 @@ export const genNodeMetaData = ({
   sort,
   type,
   title = '',
-  author = 'Dify',
+  author = 'Tacit',
   helpLinkUri,
   isRequired = false,
   isUndeletable = false,

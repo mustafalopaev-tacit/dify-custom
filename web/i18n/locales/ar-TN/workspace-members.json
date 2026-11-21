@@ -20,7 +20,7 @@
   "members.invalidRole": "الدور المحدد لم يعد متاحًا. اختر دورًا آخر.",
   "members.invitationLink": "رابط الدعوة",
   "members.invitationSent": "تم إرسال الدعوة",
-  "members.invitationSentTip": "تم إرسال الدعوة، ويمكنهم تسجيل الدخول إلى Dify للوصول إلى بيانات فريقك.",
+  "members.invitationSentTip": "تم إرسال الدعوة، ويمكنهم تسجيل الدخول إلى Tacit للوصول إلى بيانات فريقك.",
   "members.invite": "إضافة",
   "members.inviteFailed": "تعذر إرسال الدعوات. يُرجى المحاولة مرة أخرى.",
   "members.inviteLimitExceeded": "لا تتوفر مقاعد كافية لجميع المستلمين.",

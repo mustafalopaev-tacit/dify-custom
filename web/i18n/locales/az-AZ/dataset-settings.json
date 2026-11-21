@@ -5,7 +5,7 @@
   "form.chunkStructure.learnMore": "Ətraflı öyrən",
   "form.chunkStructure.title": "Hissə quruluşu",
   "form.desc": "Təsvir",
-  "form.descPlaceholder": "Bu verilənlər dəstində nələrin olduğunu təsvir edin. Ətraflı təsvir süni intellektin verilənlər dəstinin məzmununa vaxtında müraciət etməsinə imkan verir. Boş olduqda Dify standart uyğunluq strategiyasından istifadə edəcək.",
+  "form.descPlaceholder": "Bu verilənlər dəstində nələrin olduğunu təsvir edin. Ətraflı təsvir süni intellektin verilənlər dəstinin məzmununa vaxtında müraciət etməsinə imkan verir. Boş olduqda Tacit standart uyğunluq strategiyasından istifadə edəcək.",
   "form.embeddingModel": "Vektorlaşdırma modeli",
   "form.embeddingModelTip": "Vektorlaşdırma modelini dəyişmək üçün keçid: ",
   "form.embeddingModelTipLink": "Parametrlər",

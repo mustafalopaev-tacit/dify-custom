@@ -40,7 +40,7 @@ export function MainNavLogo() {
     select: (data) => data.branding,
   })
   const appTitle =
-    branding.enabled && branding.application_title ? branding.application_title : 'Dify'
+    branding.enabled && branding.application_title ? branding.application_title : 'Tacit'
 
   return (
     <Link
