@@ -159,7 +159,7 @@ const explicit = (t: Theme): Record<string, string> => {
     'saas-dify-blue-inverted-dimmed': light ? b.text : alpha('#ffffff', 0.88),
 
     // Premium badge: white label on a deep mint gradient.
-    'components-premium-badge-blue-bg-stop-0': light ? b.deep : '#008a63',
+    'components-premium-badge-blue-bg-stop-0': light ? b.deep : '#007f5c',
     'components-premium-badge-blue-bg-stop-100': light ? b.deepHover : b.deep,
     'components-premium-badge-blue-stroke-stop-0': alpha('#ffffff', 0.95),
     'components-premium-badge-blue-stroke-stop-100': light ? b.deepHover : b.deep,
