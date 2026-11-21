@@ -26,6 +26,7 @@ import { I18nServerProvider } from './components/provider/i18n-server'
 import { TanStackQueryProvider } from './query-provider'
 import { QueryStateProvider } from './query-state-provider'
 import '@/service/console/server'
+import '@fontsource-variable/geist'
 import './styles/globals.css'
 import './styles/markdown.css'
 
