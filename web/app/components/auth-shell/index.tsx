@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { useState } from 'react'
+import { TACIT_BRANDING } from '@/config/tacit-branding'
 import { systemFeaturesQueryOptions } from '@/features/system-features/client'
 import Header from './header'
 
@@ -34,7 +35,7 @@ export function AuthShell({ children, header = true, wide = false }: AuthShellPr
         </main>
         {!systemFeatures.branding.enabled && (
           <footer className="px-4 py-6 system-xs-regular text-text-tertiary sm:px-8">
-            © {copyrightYear} LangGenius, Inc. All rights reserved.
+            © {copyrightYear} {TACIT_BRANDING.copyrightHolder}. All rights reserved.
           </footer>
         )}
       </div>

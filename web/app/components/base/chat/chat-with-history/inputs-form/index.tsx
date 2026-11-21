@@ -73,6 +73,7 @@ const InputsFormNode = ({ collapsed, setCollapsed }: Props) => {
                 theme
                   ? {
                       backgroundColor: theme.primaryColor,
+                      color: theme.primaryForegroundColor,
                     }
                   : {}
               }

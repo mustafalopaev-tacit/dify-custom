@@ -10,6 +10,7 @@ import { I18nextProvider, Trans, useTranslation } from 'react-i18next'
 import { LoadingPlaceholder } from '@/app/components/base/loading-placeholder'
 import { DifyLogo } from '@/app/components/base/logo/dify-logo'
 import { I18nDirectionProvider } from '@/app/components/provider/i18n-direction'
+import { TACIT_BRANDING } from '@/config/tacit-branding'
 import { ThemeSelector } from '@/features/theme/theme-selector'
 import { loadI18nResource } from '@/i18n/load-resource'
 import { getInitOptions } from '@/i18n/settings'
@@ -129,7 +130,7 @@ function PageContent({ clientIp, embedded }: AppNotAccessibleProps) {
           </div>
         </Content>
         <footer className="shrink-0 px-6 pt-2 pb-6 text-center system-xs-regular text-text-tertiary">
-          © {copyrightYear} LangGenius, Inc. All rights reserved.
+          © {copyrightYear} {TACIT_BRANDING.copyrightHolder}. All rights reserved.
         </footer>
       </div>
     </div>
