@@ -61,7 +61,9 @@ describe('Root layout System Features bootstrap', () => {
       expect(document.documentElement.lang).toBe(locale)
       expect(document.documentElement.dir).toBe(direction)
       expect(document.body.querySelector('main')).toHaveTextContent('App unavailable')
-      await expect(generateMetadata()).resolves.toEqual({ icons: { icon: '/favicon.ico' } })
+      await expect(generateMetadata()).resolves.toEqual({
+        icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
+      })
 
       expect(mocks.getOptionalSystemFeatures).not.toHaveBeenCalled()
       expect(mocks.dehydrateSystemFeatures).not.toHaveBeenCalled()
@@ -129,7 +131,7 @@ describe('Root layout System Features bootstrap', () => {
     const { generateMetadata } = await import('../layout')
 
     await expect(generateMetadata()).resolves.toMatchObject({
-      icons: { icon: '/favicon.ico' },
+      icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
     })
   })
 
@@ -141,7 +143,7 @@ describe('Root layout System Features bootstrap', () => {
     const { generateMetadata } = await import('../layout')
 
     await expect(generateMetadata()).resolves.toMatchObject({
-      icons: { icon: '/favicon.ico' },
+      icons: { icon: '/favicon.ico', apple: '/apple-touch-icon.png' },
     })
   })
 
